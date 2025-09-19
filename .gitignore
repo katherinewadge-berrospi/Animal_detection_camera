@@ -8,3 +8,7 @@ node_modules/
 .github/
 cloudinary_python.txt
 kaggle.json
+# Ignore datasets
+inputs/datasets/
+inputs/animals/
+*.zip
