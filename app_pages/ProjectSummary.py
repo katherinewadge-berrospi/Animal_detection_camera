@@ -36,3 +36,4 @@ def page1_body():
         present in an uploaded image.
         """
     )
+    
