@@ -13,3 +13,12 @@ def compute_average_image(filepaths):
     avg_img = np.mean(imgs, axis=0)
 
     return avg_img
+
+def compute_variability_image(filepaths):
+    """
+    Compute the standard deviation image for a list of filepaths.
+    """
+    imgs = [np.array(Image.open(fp).convert("L")) for fp in filepaths]
+    std_img = np.std(imgs, axis=0)
+
+    return std_img
