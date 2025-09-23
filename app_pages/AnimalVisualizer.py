@@ -1,4 +1,11 @@
 import streamlit as st
+import pandas as pd
+
+from src.visualization import (
+    plot_mean_variability_for_classes,
+    plot_montage,
+    compute_average_image
+)
 
 
 def page2_body():
