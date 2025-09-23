@@ -43,6 +43,7 @@ def page_animal_visualizer(df: pd.DataFrame):
     # Checkbox 3 – Image montage
     if st.checkbox("Generate an image montage of sample animals per class"):
         st.subheader("Image Montage")
-        st.info("📌 This section will display a montage/grid of sample images per class.")
-        # TODO: Insert montage display function here
-        #st.write("⚠️ Functionality not yet implemented")
+        selected_class = st.selectbox("Choose a class:", labels)
+        if selected_class:
+            fig = plot_montage(df, selected_class)
+            st.pyplot(fig)
