@@ -8,24 +8,37 @@ from src.visualization import (
 )
 
 
-def page2_body():
+def page_animal_visualizer(df: pd.DataFrame):
     """ Page 2: Animal Visualizer"""
     st.header("Animal Visualizer")
     st.write("This page addresses **Business Requirement 1**.")
+    labels = df['label'].unique().tolist()
 
     # Checkbox 1 – Average and variability images
     if st.checkbox("Display differences between average and variability images per species"):
         st.subheader("Average & Variability Images")
-        st.info("📌 This section will show average and standard deviation images for selected species.")
-        # TODO: Insert code here to compute and display avg/std images
-        # st.write("⚠️ Functionality not yet implemented")
+        selected_classes = st.multiselect("Select species:", labels, default=labels[:2])
+        if selected_classes:
+            fig = plot_mean_variability_for_classes(df, selected_classes)
+            st.pyplot(fig)
 
     # Checkbox 2 – Compare average images across species
     if st.checkbox("Compare average images of different species"):
         st.subheader("Comparison of Average Images")
-        st.info("📌 This section will compare average images between different animal classes.")
-        # TODO: Insert code here to compare averages
-        # st.write("⚠️ Functionality not yet implemented")
+        selected_classes = st.multiselect("Select species for comparison:", labels, default=labels[:3])
+        if selected_classes:
+            import matplotlib.pyplot as plt
+            fig, axes = plt.subplots(1, len(selected_classes), figsize=(5*len(selected_classes), 5))
+            if len(selected_classes) == 1:
+                axes = [axes]
+
+            for ax, cls in zip(axes, selected_classes):
+                avg_img = compute_average_image(df[df['label'] == cls]['filepath'])
+                ax.imshow(avg_img, cmap="gray")
+                ax.set_title(cls)
+                ax.axis("off")
+
+            st.pyplot(fig)
 
     # Checkbox 3 – Image montage
     if st.checkbox("Generate an image montage of sample animals per class"):
