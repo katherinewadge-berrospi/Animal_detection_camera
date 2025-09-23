@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-def page1_body():
+def page_project_summary():
     """Page 1: Project Summary"""
     st.header("Project Summary")
 
