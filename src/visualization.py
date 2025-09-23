@@ -48,3 +48,26 @@ def plot_mean_variability_for_classes(df, classes, n_samples=20):
 
     plt.tight_layout()
     return fig
+
+def plot_montage(df, cls, n_images=9):
+    """
+    Plot a montage of random sample images for a class.
+    """
+    sample_files = df[df['label'] == cls]['filepath'].sample(min(n_images, len(df)))
+    n_cols = 3
+    n_rows = int(np.ceil(len(sample_files) / n_cols))
+
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(8, 8))
+    axes = axes.flatten()
+
+    for i, (ax, fp) in enumerate(zip(axes, sample_files)):
+        img = Image.open(fp)
+        ax.imshow(img)
+        ax.set_title(cls, fontsize=8)
+        ax.axis("off")
+
+    for j in range(i+1, len(axes)):
+        axes[j].axis("off")
+
+    plt.tight_layout()
+    return fig
