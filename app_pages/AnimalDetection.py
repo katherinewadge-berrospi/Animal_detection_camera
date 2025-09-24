@@ -86,4 +86,9 @@ def page_animal_detection(df=None):
             st.write("Top 3 predictions for this image:")
             st.table(pd.DataFrame(top_results))
 
+        # Results table
+        df_predictions = pd.DataFrame(results)
+        st.success("Analysis Report: Predictions are ready ✅")
+        st.table(df_predictions)
+
         
