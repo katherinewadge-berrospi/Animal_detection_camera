@@ -1,7 +1,8 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 
 
-def page4_body():
+def page_hypotheses_validation():
     """Page 4: Project Hypotheses and Validation"""
     st.header("Project Hypotheses and Validation")
 
