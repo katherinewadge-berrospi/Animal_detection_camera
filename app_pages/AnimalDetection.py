@@ -1,4 +1,22 @@
 import streamlit as st
+from PIL import Image
+import numpy as np
+import pandas as pd
+from tensorflow.keras.models import load_model
+import joblib
+import base64
+from datetime import datetime
+from io import BytesIO
+import gc
+
+
+# Cache model + class mapping so they load once
+@st.cache_resource
+def load_detector():
+    model = load_model("outputs/v1/final_model.keras")
+    class_indices = joblib.load("outputs/v1/class_indices.pkl")
+    target_map = {v: k for k, v in class_indices.items()}
+    return model, target_map
 
 
 def page_animal_detection(df=None):
