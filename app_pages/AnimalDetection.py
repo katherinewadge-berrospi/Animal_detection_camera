@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-def page3_body():
+def page_animal_detection(df=None):
     """Page 3: Animal Detection App"""
     st.header("Animal Detection App")
     st.write("This page addresses **Business Requirement 2**.")
@@ -14,6 +14,17 @@ def page3_body():
         process them using the trained classification model.
         """
     )
+
+    uploaded_files = st.file_uploader(
+        "Upload one or more animal images",
+        type=["jpg", "jpeg", "png"],
+        accept_multiple_files=True
+    )
+
+    if uploaded_files:
+        st.success(f"{len(uploaded_files)} file(s) uploaded successfully.")
+        for uploaded_file in uploaded_files:
+            st.image(uploaded_file, caption=uploaded_file.name, use_column_width=True)
 
     st.subheader("Planned Features")
     st.markdown(
