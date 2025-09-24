@@ -73,4 +73,17 @@ def page_animal_detection(df=None):
                     "The result may be unreliable — try a clearer image."
                 )
 
-            
+            results.append({
+                "Image": uploaded_file.name,
+                "Predicted Species": pred_species,
+                "Confidence": f"{confidence:.1f}%"
+            })
+            top_3 = np.argsort(predictions[0])[-3:][::-1]
+            top_results = [
+                {"Species": target_map[i], "Confidence": f"{predictions[0][i]*100:.1f}%"}
+                for i in top_3
+            ]
+            st.write("Top 3 predictions for this image:")
+            st.table(pd.DataFrame(top_results))
+
+        
