@@ -27,6 +27,9 @@ def page_animal_detection(df=None):
         You can upload multiple images, and results can be exported to CSV.
         """
     )
+    st.write("---")
+
+    model, target_map = load_detector()
 
     uploaded_files = st.file_uploader(
         "Upload one or more animal images",
@@ -35,21 +38,27 @@ def page_animal_detection(df=None):
     )
 
     if uploaded_files:
-        st.success(f"{len(uploaded_files)} file(s) uploaded successfully.")
+        results = []
+
         for uploaded_file in uploaded_files:
-            st.image(uploaded_file, caption=uploaded_file.name, use_column_width=True)
+            image_stream = BytesIO(uploaded_file.read())
+            image_stream.seek(0)
 
-    st.subheader("Planned Features")
-    st.markdown(
-        """
-        - File uploader widget for one or multiple images  
-        - Display of the uploaded image(s)  
-        - Prediction of the species  
-        - Probability (confidence score) for each prediction  
-        - Results table with image names and predictions  
-        - Download button to export predictions as a CSV  
-        """
-    )
+            with Image.open(image_stream) as img_pil:
+                img_pil = img_pil.convert("RGB")
+                img_resized = img_pil.resize((128, 128))
 
-    # TODO
-    # st.info("⚠️ Functionality will be implemented later.")
+            st.image(
+                img_resized,
+                caption=f"Resized image: {uploaded_file.name} (128x128 pixels)",
+                use_container_width=True,
+            )
+
+            img_array = np.array(img_resized) / 255.0
+            img_array = np.expand_dims(img_array, axis=0)
+
+            # Clear RAM
+            del img_pil
+            gc.collect()
+
+           
