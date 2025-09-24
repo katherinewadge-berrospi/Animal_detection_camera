@@ -91,4 +91,13 @@ def page_animal_detection(df=None):
         st.success("Analysis Report: Predictions are ready ✅")
         st.table(df_predictions)
 
-        
+        # Download CSV
+        st.markdown(df_as_csv(df_predictions), unsafe_allow_html=True)
+
+
+def df_as_csv(df):
+    """Allow users to download predictions as CSV."""
+    datetime_now = datetime.now().strftime("%d%b%Y_%Hh%Mmin%Ss")
+    csv = df.to_csv(index=False).encode()
+    b64 = base64.b64encode(csv).decode()
+    return f'<a href="data:file/csv;base64,{b64}" download="AnimalPredictions_{datetime_now}.csv" target="_blank">Download Results as CSV</a>'
