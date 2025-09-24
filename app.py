@@ -1,18 +1,21 @@
 import streamlit as st
-from multipage import MultiPage
-from app_pages import ProjectSummary, AnimalVisualizer, AnimalDetection, HypothesesValidation, MLMetrics
+import pandas as pd
+
+from app_pages.ProjectSummary import page_project_summary
+from app_pages.AnimalVisualizer import page_animal_visualizer
 
 
-# Create app instance
-app = MultiPage("Animal Detection App")
+df = pd.read_csv("inputs/datasets/animal_predictions.csv")
 
-# Register pages
-app.app_page("Project Summary", ProjectSummary.page1_body)
-app.app_page("Animal Visualizer", AnimalVisualizer.page2_body)
-app.app_page("Animal Detection App", AnimalDetection.page3_body)
-app.app_page("Project Hypotheses and Validation", HypothesesValidation.page4_body)
-app.app_page("ML Metrics", MLMetrics.page5_body)
+def main():
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to", ["Project Summary", "Animal Visualizer"])
 
-# Run the app
+    if page == "Project Summary":
+        page_project_summary()
+
+    elif page == "Animal Visualizer":
+        page_animal_visualizer(df)
+
 if __name__ == "__main__":
     app.run()
