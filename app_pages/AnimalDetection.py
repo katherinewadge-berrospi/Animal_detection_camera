@@ -20,16 +20,11 @@ def load_detector():
 
 
 def page_animal_detection(df=None):
-    """Page 3: Animal Detection App"""
     st.header("Animal Detection App")
-    st.write("This page addresses **Business Requirement 2**.")
-
-    st.subheader("Overview")
-    st.write(
+    st.info(
         """
-        This section provides an interface for detecting animals in uploaded images.
-        Users will be able to upload one or multiple animal images, and the app will
-        process them using the trained classification model.
+        Upload an image of an animal, and the model will predict the most likely species.  
+        You can upload multiple images, and results can be exported to CSV.
         """
     )
 
