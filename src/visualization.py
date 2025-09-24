@@ -31,10 +31,12 @@ def plot_mean_variability_for_classes(df, classes, n_samples=20):
     fig, axes = plt.subplots(len(classes), 2, figsize=(8, 4*len(classes)))
 
     if len(classes) == 1:
-        axes = [axes]  # ensure iterable
+        axes = [axes]
 
     for i, cls in enumerate(classes):
-        class_files = df[df['label'] == cls]['filepath'].sample(min(n_samples, len(df)))
+        subset = df[df['true_label'] == cls]
+        class_files = subset['filepath'].sample(min(n_samples, len(subset)))
+
         avg_img = compute_average_image(class_files)
         std_img = compute_variability_image(class_files)
 
@@ -53,7 +55,9 @@ def plot_montage(df, cls, n_images=9):
     """
     Plot a montage of random sample images for a class.
     """
-    sample_files = df[df['label'] == cls]['filepath'].sample(min(n_images, len(df)))
+    subset = df[df['true_label'] == cls]
+    sample_files = subset['filepath'].sample(min(n_images, len(subset)))
+    
     n_cols = 3
     n_rows = int(np.ceil(len(sample_files) / n_cols))
 
