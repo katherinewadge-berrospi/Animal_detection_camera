@@ -18,4 +18,4 @@ def main():
         page_animal_visualizer(df)
 
 if __name__ == "__main__":
-    app.run()
+    main()
