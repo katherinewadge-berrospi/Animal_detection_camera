@@ -6,16 +6,24 @@ def page_hypotheses_validation():
     """Page 4: Project Hypotheses and Validation"""
     st.header("Project Hypotheses and Validation")
 
-    st.subheader("Hypothesis 1")
+    st.markdown("## Hypothesis 1")
     st.write(
         """
         **The model can differentiate between species based on visual patterns 
         (colour, shape, texture).**
         """
     )
-    st.markdown("- **Validation**: Accuracy/loss curves, confusion matrix.")
+    st.markdown("### **Validation**")
+    st.markdown("#### Training History")
+    st.image("outputs/v1/model_training_acc.png", caption="Accuracy Curve")
+    st.image("outputs/v1/model_training_losses.png", caption="Loss Curve")
+    st.image(
+        "outputs/v1/confusion_matrix.png",
+        caption="Confusion Matrix: True vs Predicted Species"
+        )
+    st.success("Supported: Model achieves high accuracy across species.")
 
-    st.subheader("Hypothesis 2")
+    st.markdown("## Hypothesis 2")
     st.write(
         """
         **Increasing dataset size and diversity improves accuracy.**
