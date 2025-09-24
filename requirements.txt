@@ -1,5 +1,7 @@
 streamlit==1.40.2
-tensorflow==2.20.0
+tensorflow==2.16.1
+keras==3.2.1
+absl-py==2.1.0
 pandas==2.1.1
 numpy==1.26.1
 matplotlib==3.8.0
