@@ -12,7 +12,8 @@ def page_animal_visualizer(df: pd.DataFrame):
     """ Page 2: Animal Visualizer"""
     st.header("Animal Visualizer")
     st.write("This page addresses **Business Requirement 1**.")
-    labels = df['label'].unique().tolist()
+    labels = df['true_label'].unique().tolist()
+
 
     # Checkbox 1 – Average and variability images
     if st.checkbox("Display differences between average and variability images per species"):
@@ -33,7 +34,7 @@ def page_animal_visualizer(df: pd.DataFrame):
                 axes = [axes]
 
             for ax, cls in zip(axes, selected_classes):
-                avg_img = compute_average_image(df[df['label'] == cls]['filepath'])
+                avg_img = compute_average_image(df[df['true_label'] == cls]['filepath'])
                 ax.imshow(avg_img, cmap="gray")
                 ax.set_title(cls)
                 ax.axis("off")
