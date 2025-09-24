@@ -61,4 +61,16 @@ def page_animal_detection(df=None):
             del img_pil
             gc.collect()
 
-           
+            # Integrate Model Predictions
+            predictions = model.predict(img_array)
+            pred_idx = np.argmax(predictions)
+            pred_species = target_map[pred_idx]
+            confidence = predictions[0][pred_idx] * 100
+
+            if confidence < 50:
+                st.warning(
+                    f"⚠️ Low confidence prediction ({confidence:.1f}%). "
+                    "The result may be unreliable — try a clearer image."
+                )
+
+            
