@@ -5,6 +5,7 @@ from app_pages.ProjectSummary import page_project_summary
 from app_pages.AnimalVisualizer import page_animal_visualizer
 from app_pages.AnimalDetection import page_animal_detection
 from app_pages.HypothesesValidation import page_hypotheses_validation
+from app_pages.MLMetrics import page_ml_prediction_metrics
 
 
 df = pd.read_csv("inputs/datasets/animal_predictions.csv")
@@ -15,7 +16,8 @@ def main():
         "Project Summary",
         "Animal Visualizer",
         "Animal Detection",
-        "Hypotheses and Validation"
+        "Hypotheses and Validation",
+        "ML Prediction Metrics"
         ])
 
     if page == "Project Summary":
@@ -29,6 +31,9 @@ def main():
     
     elif page == "Hypotheses and Validation":
         page_hypotheses_validation()
+    
+    elif page == "ML Prediction Metrics":
+        page_ml_prediction_metrics()
 
 
 if __name__ == "__main__":
