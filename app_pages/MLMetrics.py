@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-def page5_body():
+def page_ml_prediction_metrics():
     """Page 5: ML Prediction Metrics"""
     st.header("ML Prediction Metrics")
 
@@ -31,6 +31,3 @@ def page5_body():
         - Confusion matrix  
         """
     )
-
-    #TODO
-    #st.info("⚠️ Visuals and metrics will be integrated later once the model evaluation is complete.")
