@@ -1,5 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def page_hypotheses_validation():
@@ -30,8 +31,32 @@ def page_hypotheses_validation():
         """
     )
     st.markdown("### **Validation**: Compare results on smaller vs. larger subsets.")
-    st.line_chart(subset_results_df)
-    st.info("Partial support: Larger dataset improved accuracy by ~8%.")
+    
+    st.markdown("#### Training History")
+    st.image("outputs/v1/small-data/small_model_training_acc.png", caption="Accuracy Curve")
+    st.image("outputs/v1/small-data/small_model_training_losses.png", caption="Loss Curve")
+    st.image(
+        "outputs/v1/small-data/confusion_matrix.png",
+        caption="Confusion Matrix: True vs Predicted Species (small data)"
+        )
+
+    results = {
+    "Dataset": ["Full Data", "Small Data"],
+    "Accuracy": [0.98, 0.96],
+    "Loss": [0.05, 0.13],
+    "F1 score": [0.98, 0.96]
+    }
+    subset_results_df = pd.DataFrame(results)
+
+    st.dataframe(subset_results_df)
+
+    st.bar_chart(subset_results_df.set_index("Dataset")[["Accuracy"]])
+    st.bar_chart(subset_results_df.set_index("Dataset")[["Loss"]])
+
+    st.info(
+        "Partial support: Larger dataset improved accuracy by..."
+        "This confirms(?) the hypothesis that more data improves performance."
+    )
 
     st.markdown("## Hypothesis 3")
     st.write(
