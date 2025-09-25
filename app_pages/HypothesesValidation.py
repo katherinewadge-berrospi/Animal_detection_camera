@@ -82,3 +82,11 @@ def page_hypotheses_validation():
     }
     aug_results_df = pd.DataFrame(augmentation_results)
     st.dataframe(aug_results_df)
+
+    st.bar_chart(aug_results_df.set_index("Setting")[["Accuracy"]])
+    st.bar_chart(aug_results_df.set_index("Setting")[["Loss"]])
+
+    st.success(
+        "Rejected: Without augmentation, the model shows improved performance and generalization. "
+        "This rejects the hypothesis that augmentation improves the model's performance."
+    )
