@@ -66,4 +66,10 @@ def page_hypotheses_validation():
     )
     st.markdown("- **Validation**: Train with/without augmentation and compare performance.")
 
-    st.write("✅ Page loaded correctly")
+    st.markdown("#### Without Augmentation")
+    st.image("outputs/v1/no_aug/model_training_acc.png", caption="Accuracy Curve (No Augmentation)")
+    st.image("outputs/v1/no_aug/model_training_losses.png", caption="Loss Curve (No Augmentation)")
+    st.image(
+        "outputs/v1/no_aug/confusion_matrix_no_aug.png",
+        caption="Confusion Matrix: No Augmentation"
+    )
