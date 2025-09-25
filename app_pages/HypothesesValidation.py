@@ -73,3 +73,12 @@ def page_hypotheses_validation():
         "outputs/v1/no_aug/confusion_matrix_no_aug.png",
         caption="Confusion Matrix: No Augmentation"
     )
+
+    augmentation_results = {
+        "Setting": ["With Augmentation", "Without Augmentation"],
+        "Accuracy": [0.98, 0.99],
+        "Loss": [0.05, 0.02],
+        "F1 score": [0.98, 0.99]
+    }
+    aug_results_df = pd.DataFrame(augmentation_results)
+    st.dataframe(aug_results_df)
