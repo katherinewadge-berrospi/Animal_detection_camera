@@ -10,8 +10,8 @@ def page_hypotheses_validation():
     st.markdown("## Hypothesis 1")
     st.write(
         """
-        **The model can differentiate between species based on visual patterns 
-        (colour, shape, texture).**
+        The model can differentiate between animal species based on visual 
+        features such as colour and shape.
         """
     )
     st.markdown("### **Validation**")
@@ -30,7 +30,8 @@ def page_hypotheses_validation():
     st.markdown("## Hypothesis 2")
     st.write(
         """
-        **Increasing dataset size and diversity improves accuracy.**
+        Training the model on a smaller dataset reduces model performance and 
+        accuracy.
         """
     )
     st.markdown("### **Validation**: Compare results on smaller vs. larger " \
@@ -64,7 +65,8 @@ def page_hypotheses_validation():
     st.markdown("## Hypothesis 3")
     st.write(
         """
-        **Data augmentation improves model generalization.**
+        Training the model on non-augmented images will reduce model 
+        performance and accuracy.
         """
     )
     st.markdown("- **Validation**: Train with/without augmentation and " \
@@ -93,7 +95,9 @@ def page_hypotheses_validation():
     st.bar_chart(aug_results_df.set_index("Setting")[["Accuracy"]])
     st.bar_chart(aug_results_df.set_index("Setting")[["Loss"]])
 
-    st.success(
-        "Rejected: Without augmentation, the model shows improved performance and generalization. "
-        "This rejects the hypothesis that augmentation improves the model's performance."
+    st.error(
+        "Not supported: The model trained without augmentation performed " \
+        "slightly better than the augmented model. Non-augmentation did " \
+        "improve accuracy or F1 score, indicating that in this case, " \
+        "augmentation may not be required."
     )
