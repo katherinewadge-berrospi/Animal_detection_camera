@@ -23,8 +23,9 @@ def page_animal_detection(df=None):
     st.header("Animal Detection App")
     st.info(
         """
-        Upload an image of an animal, and the model will predict the most likely species.  
-        You can upload multiple images, and results can be exported to CSV.
+        Upload an image of an animal, and the model will predict the most likely 
+        species. You can upload multiple images, and results can be exported to 
+        CSV.
         """
     )
     st.write("---")
@@ -80,7 +81,8 @@ def page_animal_detection(df=None):
             })
             top_3 = np.argsort(predictions[0])[-3:][::-1]
             top_results = [
-                {"Species": target_map[i], "Confidence": f"{predictions[0][i]*100:.1f}%"}
+                {"Species": target_map[i], 
+                "Confidence": f"{predictions[0][i]*100:.1f}%"}
                 for i in top_3
             ]
             st.write("Top 3 predictions for this image:")
@@ -100,4 +102,8 @@ def df_as_csv(df):
     datetime_now = datetime.now().strftime("%d%b%Y_%Hh%Mmin%Ss")
     csv = df.to_csv(index=False).encode()
     b64 = base64.b64encode(csv).decode()
-    return f'<a href="data:file/csv;base64,{b64}" download="AnimalPredictions_{datetime_now}.csv" target="_blank">Download Results as CSV</a>'
+    return (
+        f'<a href="data:file/csv;base64,{b64}" '
+        f'download="AnimalPredictions_{datetime_now}.csv" '
+        f'target="_blank">Download Results as CSV</a>'
+    )
