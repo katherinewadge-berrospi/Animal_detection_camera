@@ -16,9 +16,11 @@ def page_animal_visualizer(df: pd.DataFrame):
 
 
     # Checkbox 1 – Average and variability images
-    if st.checkbox("Display differences between average and variability images per species"):
+    if st.checkbox("Display differences between average and variability images " \
+        "per species"):
         st.subheader("Average & Variability Images")
-        selected_classes = st.multiselect("Select species:", labels, default=labels[:2])
+        selected_classes = st.multiselect("Select species:", labels, 
+        default=labels[:2])
         if selected_classes:
             fig = plot_mean_variability_for_classes(df, selected_classes)
             st.pyplot(fig)
@@ -26,15 +28,19 @@ def page_animal_visualizer(df: pd.DataFrame):
     # Checkbox 2 – Compare average images across species
     if st.checkbox("Compare average images of different species"):
         st.subheader("Comparison of Average Images")
-        selected_classes = st.multiselect("Select species for comparison:", labels, default=labels[:3])
+        selected_classes = st.multiselect("Select species for comparison:", 
+            labels, default=labels[:3])
         if selected_classes:
             import matplotlib.pyplot as plt
-            fig, axes = plt.subplots(1, len(selected_classes), figsize=(5*len(selected_classes), 5))
+            fig, axes = plt.subplots(1, len(selected_classes), 
+            figsize=(5*len(selected_classes), 5))
             if len(selected_classes) == 1:
                 axes = [axes]
 
             for ax, cls in zip(axes, selected_classes):
-                avg_img = compute_average_image(df[df['true_label'] == cls]['filepath'])
+                avg_img = compute_average_image(
+                    df[df['true_label'] == cls]['filepath']
+                )
                 ax.imshow(avg_img, cmap="gray")
                 ax.set_title(cls)
                 ax.axis("off")
