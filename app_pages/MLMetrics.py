@@ -52,14 +52,6 @@ def page_ml_prediction_metrics():
     show_report("outputs/v1/reports/classification_report_small.txt", "Small Dataset")
     show_report("outputs/v1/reports/classification_report_no-aug.txt", "No Augmentation")
 
-    st.subheader("Final Model Evaluation")
-    st.markdown(
-        """
-        - Precision  
-        - Recall  
-        - F1-score   
-        """
-    )
 
 def load_report_df(file_path):
     rows = []
