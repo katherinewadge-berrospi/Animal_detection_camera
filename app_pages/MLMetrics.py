@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 
 def page_ml_prediction_metrics():
@@ -7,7 +8,26 @@ def page_ml_prediction_metrics():
     st.header("ML Prediction Metrics")
 
     st.markdown("## Label Distribution")
-    ## st.plotly_chart('outputs/v1/labels_distribution_rows.png')
+    label_counts = pd.read_csv("outputs/v1/label_distribution.csv")
+    # Sort alphabetically
+    label_counts = label_counts.sort_values("Label")
+    fig = px.bar(
+        label_counts,
+        x="Frequency",
+        y="Label",
+        color="Set",
+        title="Label Distribution",
+        barmode="group",
+        orientation="h"
+    )
+    fig.update_yaxes(
+        categoryorder="array",
+        categoryarray=sorted(label_counts["Label"].unique())
+    )
+    fig.update_layout(
+        height=15 * label_counts["Label"].nunique(),
+    )
+    st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("## Model Training History")
     st.markdown("### Accuracy Curves")
