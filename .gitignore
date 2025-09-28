@@ -3,8 +3,7 @@
 inputs/
 datasets/
 outputs/*
-!outputs/v1/app_images/*.png 
-*.jpg
+*.png
 *.jpeg
 *.gif
 *.h5

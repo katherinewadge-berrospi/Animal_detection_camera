@@ -1,7 +1,8 @@
-import numpy as np
+import os
 import matplotlib.pyplot as plt
-import random
 from PIL import Image
+import numpy as np
+import random
 
 
 def compute_average_image(filepaths):
@@ -10,18 +11,14 @@ def compute_average_image(filepaths):
     Returns numpy array.
     """
     imgs = [np.array(Image.open(fp).convert("L")) for fp in filepaths]
-    avg_img = np.mean(imgs, axis=0)
-
-    return avg_img
+    return np.mean(imgs, axis=0)
 
 def compute_variability_image(filepaths):
     """
     Compute the standard deviation image for a list of filepaths.
     """
     imgs = [np.array(Image.open(fp).convert("L")) for fp in filepaths]
-    std_img = np.std(imgs, axis=0)
-
-    return std_img
+    return np.std(imgs, axis=0)
 
 def plot_mean_variability_for_classes(df, classes, n_samples=20):
     """
@@ -29,7 +26,6 @@ def plot_mean_variability_for_classes(df, classes, n_samples=20):
     Shows avg & std images for given classes.
     """
     fig, axes = plt.subplots(len(classes), 2, figsize=(8, 4*len(classes)))
-
     if len(classes) == 1:
         axes = [axes]
 
@@ -75,3 +71,22 @@ def plot_montage(df, cls, n_images=9):
 
     plt.tight_layout()
     return fig
+
+def get_available_visualizations(img_dir="app_images"):
+    """
+    Return a dict of species -> filepaths for saved average/variability images.
+    Looks for files named avg_var_<species>.png
+    """
+    files = [f for f in os.listdir(img_dir) if f.startswith("avg_var_") and f.endswith(".jpg")]
+    species = {f.replace("avg_var_", "").replace(".jpg", ""): os.path.join(img_dir, f) for f in files}
+    return species
+
+def load_visualization_for_species(species, img_dir="app_images"):
+    """
+    Load pre-saved avg/var visualization for a species.
+    Returns filepath if exists, else None.
+    """
+    path = os.path.join(img_dir, f"avg_var_{species}.jpg")
+    if os.path.exists(path):
+        return path
+    return None
