@@ -54,23 +54,23 @@ def page_hypotheses_validation():
             caption="Loss Curve Small Dataset")
 
     st.image("outputs/v1/small-data/confusion_matrix.png",
-        caption="Confusion Matrix: True vs Predicted Species (small data)")
+        caption="Confusion Matrix: True vs Predicted Species (Small Dataset)")
     results = {
         "Dataset": ["Full Data", "Small Data"],
         "Accuracy": [0.98, 0.96],
         "Loss": [0.05, 0.13],
-        "F1 score": [0.98, 0.96]
+        "F1-score": [0.98, 0.96]
     }
     subset_results_df = pd.DataFrame(results)
     st.dataframe(subset_results_df)
     st.bar_chart(subset_results_df.set_index("Dataset")[["Accuracy"]])
     st.bar_chart(subset_results_df.set_index("Dataset")[["Loss"]])
     st.success(
-        "Support: The full dataset achieved **98%** accuracy and F1 score with"
-        " a loss of **5%**. Whereas, the smaller datset achieved **96%**"
-        " accuracy and **13%** Loss."
-        "This confirms that the larger dataset had a higher accuracy, but the "
-        "small dataset still performed well."
+        "Support: The full dataset achieved **98%** accuracy and F1-score with"
+        " a loss of **5%**. Whereas, the smaller dataset achieved **96%**"
+        " accuracy and F1-score with a higher loss of **13%**."
+        "This confirms that the larger dataset delivered stronger performance, "
+        "though the small dataset still performed well."
     )
     st.write("---")
     st.markdown("## Hypothesis 3")
@@ -107,7 +107,7 @@ def page_hypotheses_validation():
         "Setting": ["With Augmentation", "Without Augmentation"],
         "Accuracy": [0.98, 0.99],
         "Loss": [0.05, 0.02],
-        "F1 score": [0.98, 0.99]
+        "F1-score": [0.98, 0.99]
     }
     aug_results_df = pd.DataFrame(augmentation_results)
     st.dataframe(aug_results_df)
@@ -116,9 +116,9 @@ def page_hypotheses_validation():
     st.bar_chart(aug_results_df.set_index("Setting")[["Loss"]])
 
     st.error(
-        "Rejected: The augmented model achieved **98%** accuracy and F1 score**"
+        "Rejected: The augmented model achieved **98%** accuracy and F1-score**"
         " with a loss of **5%**, while the non-augmented model achieved "
-        "**99%** accuracy and F1 score** with a lower loss of just **2%**. "
+        "**99%** accuracy and F1-score with a lower loss of just **2%**. "
         "This contradicts the hypothesis, showing that augmentation did not "
         "improve performance and may not be required for this dataset."
     )
