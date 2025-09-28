@@ -9,15 +9,14 @@ from src.visualization import (
 
 
 def page_animal_visualizer(df: pd.DataFrame):
-    """ Page 2: Animal Visualizer"""
+    """Page 2: Animal Visualizer"""
     st.header("Animal Visualizer")
     st.write("This page addresses **Business Requirement 1**.")
     labels = df['true_label'].unique().tolist()
 
 
     # Checkbox 1 – Average and variability images
-    if st.checkbox("Display differences between average and variability images " \
-        "per species"):
+    if st.checkbox("Display average and variability images per species"):
         st.subheader("Average & Variability Images")
         selected_classes = st.multiselect("Select species:", labels, 
         default=labels[:2])
@@ -26,8 +25,8 @@ def page_animal_visualizer(df: pd.DataFrame):
             st.pyplot(fig)
 
     # Checkbox 2 – Compare average images across species
-    if st.checkbox("Compare average images of different species"):
-        st.subheader("Comparison of Average Images")
+    if st.checkbox("Display average images across species"):
+        st.subheader("Average Images Across Species")
         selected_classes = st.multiselect("Select species for comparison:", 
             labels, default=labels[:3])
         if selected_classes:
@@ -48,9 +47,9 @@ def page_animal_visualizer(df: pd.DataFrame):
             st.pyplot(fig)
 
     # Checkbox 3 – Image montage
-    if st.checkbox("Generate an image montage of sample animals per class"):
+    if st.checkbox("Generate an image montage of sample animals per species"):
         st.subheader("Image Montage")
-        selected_class = st.selectbox("Choose a class:", labels)
+        selected_class = st.selectbox("Choose a species:", labels)
         if selected_class:
             fig = plot_montage(df, selected_class)
             st.pyplot(fig)
