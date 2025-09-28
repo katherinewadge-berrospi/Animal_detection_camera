@@ -1,6 +1,7 @@
 *.ipynb
 .ipynb_checkpoints/
-inputs/
+inputs/*
+!inputs/datasets/animal_predictions.csv
 datasets/
 outputs/
 *.png
