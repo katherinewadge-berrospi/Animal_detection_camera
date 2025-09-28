@@ -1,7 +1,11 @@
 *.ipynb
+.ipynb_checkpoints/
 inputs/
 datasets/
 outputs/
+*.png
+*.jpg
+*.jpeg
 *.h5
 *.ckpt
 *.keras
@@ -12,3 +16,4 @@ outputs/
 __pycache__/
 *.py[cod]
 node_modules/
+kaggle.json
