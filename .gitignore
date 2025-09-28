@@ -2,6 +2,7 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
+.venv/
 __pycache__/
 *.py[cod]
 node_modules/
@@ -10,6 +11,7 @@ cloudinary_python.txt
 kaggle.json
 inputs/datasets/
 inputs/animals/
+/outputs/
 *.zip
 *.h5
 *.ckpt
