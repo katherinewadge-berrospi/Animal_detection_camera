@@ -39,11 +39,20 @@ def page_hypotheses_validation():
     st.markdown("#### Training History")
     col1, col2 = st.columns(2)
     with col1:
+        st.image("outputs/v1/model_training_acc.png", 
+            caption="Accuracy Curve Full Dataset")
+    with col2:
         st.image("outputs/v1/small-data/small_model_training_acc.png", 
-            caption="Accuracy Curve")
+            caption="Accuracy Curve Small Dataset")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("outputs/v1/model_training_losses.png", 
+            caption="Loss Curve Full Dataset")
     with col2:
         st.image("outputs/v1/small-data/small_model_training_losses.png", 
-            caption="Loss Curve")
+            caption="Loss Curve Small Dataset")
+
     st.image("outputs/v1/small-data/confusion_matrix.png",
         caption="Confusion Matrix: True vs Predicted Species (small data)")
     results = {
@@ -74,11 +83,20 @@ def page_hypotheses_validation():
     st.markdown("#### Without Augmentation")
     col1, col2 = st.columns(2)
     with col1:
+        st.image("outputs/v1/model_training_acc.png", 
+            caption="Accuracy Curve With Image Augmentation")
+    with col2:
         st.image("outputs/v1/no_aug/model_training_acc.png", 
-            caption="Accuracy Curve")
+            caption="Accuracy Curve Without Image Augmentation")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("outputs/v1/model_training_losses.png", 
+            caption="Loss Curve With Image Augmentation")
     with col2:
         st.image("outputs/v1/no_aug/model_training_losses.png", 
-            caption="Loss Curve")
+            caption="Loss Curve Without Image Augmentation")
+
     st.image("outputs/v1/no_aug/confusion_matrix_no_aug.png",
         caption="Confusion Matrix: No Augmentation")
 
