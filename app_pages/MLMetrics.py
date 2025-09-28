@@ -34,7 +34,7 @@ def page_ml_prediction_metrics():
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image("outputs/v1/model_training_acc.png", 
-            caption="Accuracy Curve Orignal Dataset")
+            caption="Accuracy Curve Original Dataset")
     with col2:
         st.image("outputs/v1/small-data/small_model_training_acc.png", 
             caption="Accuracy Curve Small Dataset")
@@ -46,7 +46,7 @@ def page_ml_prediction_metrics():
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image("outputs/v1/model_training_losses.png", 
-            caption="Loss Curve Orignal Dataset")
+            caption="Loss Curve Original Dataset")
     with col2:
         st.image("outputs/v1/small-data/small_model_training_losses.png", 
             caption="Loss Curve Small Dataset")
@@ -54,7 +54,7 @@ def page_ml_prediction_metrics():
         st.image("outputs/v1/no_aug/model_training_losses.png", 
             caption="Loss Curve Without Image Augmentation")
     st.write("---")
-    st.markdown("### Confusin Matrices: True vs Predicted Species")
+    st.markdown("### Confusion Matrices: True vs Predicted Species")
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image("outputs/v1/confusion_matrix.png",
@@ -72,7 +72,7 @@ def page_ml_prediction_metrics():
 
     option = st.selectbox(
         "Choose which report to view:",
-        ["Full Dataset", "Small Dataset", "No Augmentation"]
+        ["Full Dataset", "Small Dataset", "Without Augmentation"]
     )
 
     if option == "Full Dataset":
