@@ -1,55 +1,62 @@
+import os
 import streamlit as st
-import pandas as pd
+from PIL import Image
 
-from src.visualization import (
-    plot_mean_variability_for_classes,
-    plot_montage,
-    compute_average_image
-)
+APP_IMG_DIR = "app_images"
 
-
-def page_animal_visualizer(df: pd.DataFrame):
-    """Page 2: Animal Visualizer"""
+def page_animal_visualizer(df=None):
     st.header("Animal Visualizer")
-    st.write("This page addresses **Business Requirement 1**.")
-    labels = df['true_label'].unique().tolist()
+    st.write("This page addresses Business Requirement 1.")
 
+    # Get species names from available jpg files
+    available_species = []
+    for f in os.listdir(APP_IMG_DIR):
+        if f.endswith(".jpg") and f.startswith("avg_var_"):
+            species = f.replace("avg_var_", "").replace(".jpg", "")
+            available_species.append(species)
 
-    # Checkbox 1 – Average and variability images
-    if st.checkbox("Display average and variability images per species"):
-        st.subheader("Average & Variability Images")
-        selected_classes = st.multiselect("Select species:", labels, 
-        default=labels[:2])
-        if selected_classes:
-            fig = plot_mean_variability_for_classes(selected_classes)
-            st.pyplot(fig)
+    if not available_species:
+        st.error("No pre-computed images available in app_images.")
+        return
 
-    # Checkbox 2 – Compare average images across species
-    if st.checkbox("Display average images across species"):
-        st.subheader("Average Images Across Species")
-        selected_classes = st.multiselect("Select species for comparison:", 
-            labels, default=labels[:3])
-        if selected_classes:
-            import matplotlib.pyplot as plt
-            fig, axes = plt.subplots(1, len(selected_classes), 
-            figsize=(5*len(selected_classes), 5))
-            if len(selected_classes) == 1:
-                axes = [axes]
+    # First checkbox
+    selected_species_1 = st.selectbox(
+        "Select first species:", 
+        available_species, 
+        index=0
+    )
 
-            for ax, cls in zip(axes, selected_classes):
-                avg_img = compute_average_image(
-                    df[df['true_label'] == cls]['filepath']
-                )
-                ax.imshow(avg_img, cmap="gray")
-                ax.set_title(cls)
-                ax.axis("off")
+    # Second checkbox
+    selected_species_2 = st.selectbox(
+        "Select second species:", 
+        available_species, 
+        index=1 if len(available_species) > 1 else 0
+    )
 
-            st.pyplot(fig)
+    # Display chosen images
+    col1, col2 = st.columns(2)
+    with col1:
+        img1 = Image.open(os.path.join(APP_IMG_DIR, f"avg_var_{selected_species_1}.jpg"))
+        st.image(img1, caption=f"Average & Variability - {selected_species_1}")
+
+    with col2:
+        img2 = Image.open(os.path.join(APP_IMG_DIR, f"avg_var_{selected_species_2}.jpg"))
+        st.image(img2, caption=f"Average & Variability - {selected_species_2}")
 
     # Checkbox 3 – Image montage
     if st.checkbox("Generate an image montage of sample animals per species"):
         st.subheader("Image Montage")
-        selected_class = st.selectbox("Choose a species:", labels)
-        if selected_class:
-            fig = plot_montage(df, selected_class)
-            st.pyplot(fig)
+
+        # Find montage images in app_images
+        montage_species = [
+            f.replace("montage_", "").replace(".jpg", "")
+            for f in os.listdir(APP_IMG_DIR)
+            if f.startswith("montage_") and f.endswith(".jpg")
+        ]
+
+        if not montage_species:
+            st.warning("No montage images available.")
+        else:
+            selected_class = st.selectbox("Choose a species:", montage_species)
+            img_path = os.path.join(APP_IMG_DIR, f"montage_{selected_class}.jpg")
+            st.image(img_path, caption=f"Image Montage – {selected_class}")
