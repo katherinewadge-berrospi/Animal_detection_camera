@@ -66,9 +66,22 @@ def load_report_df(file_path):
     with open(file_path) as f:
         for line in f:
             parts = line.strip().split()
+            if len(parts) == 5 and parts[0] != "accuracy":
+                label, precision, recall, f1, support = parts
+                rows.append([label, float(precision), float(recall), float(f1),
+                            int(support)])
+            elif line.startswith("accuracy"):
+                parts = line.strip().split()
+                rows.append(["accuracy", "", "", float(parts[1]), int(parts[-1])])
+            elif line.startswith("macro avg") or line.startswith("weighted avg"):
+                label = " ".join(parts[:-4])
+                precision, recall, f1, support = parts[-4:]
+                rows.append([label, float(precision), float(recall), float(f1),
+                            int(support)])
+    return pd.DataFrame(rows, columns=["Label", "Precision", "Recall",
+                        "F1-score", "Support"])
 
 def show_report(file_path, title):
     st.subheader(title)
-    with open(file_path) as f:
-        report_text = f.read()
-    st.text_area("Report", report_text, height=300)
+    df = load_report_df(file_path)
+    st.dataframe(df, use_container_width=True, hide_index=True)
