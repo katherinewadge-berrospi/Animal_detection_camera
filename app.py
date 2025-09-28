@@ -8,7 +8,8 @@ from app_pages.HypothesesValidation import page_hypotheses_validation
 from app_pages.MLMetrics import page_ml_prediction_metrics
 
 
-df = pd.read_csv("inputs/datasets/animal_predictions.csv")
+df = pd.read_csv(
+    "src/machine_learning/animal_predictions.csv")
 
 def main():
     st.sidebar.title("Navigation")
