@@ -6,11 +6,11 @@ def page_ml_prediction_metrics():
     """Page 5: ML Prediction Metrics"""
     st.header("ML Prediction Metrics")
 
-    st.subheader("Label Distribution")
+    st.markdown("## Label Distribution")
     ## st.plotly_chart('outputs/v1/labels_distribution_rows.png')
 
-    st.subheader("Model Training History")
-    st.write("**Accuracy Curves**")
+    st.markdown("## Model Training History")
+    st.markdown("### Accuracy Curves")
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image("outputs/v1/model_training_acc.png", 
@@ -22,7 +22,7 @@ def page_ml_prediction_metrics():
         st.image("outputs/v1/no_aug/model_training_acc.png", 
             caption="Accuracy Curve Without Image Augmentation")
     st.write("---")
-    st.write("**Loss Curves**")
+    st.markdown("### Loss Curves")
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image("outputs/v1/model_training_losses.png", 
@@ -34,7 +34,7 @@ def page_ml_prediction_metrics():
         st.image("outputs/v1/no_aug/model_training_losses.png", 
             caption="Loss Curve Without Image Augmentation")
     st.write("---")
-    st.write("**Confusin Matrices: True vs Predicted Species**")
+    st.markdown("### Confusin Matrices: True vs Predicted Species")
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image("outputs/v1/confusion_matrix.png",
@@ -46,12 +46,22 @@ def page_ml_prediction_metrics():
         st.image("outputs/v1/no_aug/confusion_matrix_no_aug.png",
             caption="Without Image Augmentation")
     st.write("---")
-    st.header("Classification Reports")
 
-    show_report("outputs/v1/reports/classification_report_full.txt", "Full Dataset")
-    show_report("outputs/v1/reports/classification_report_small.txt", "Small Dataset")
-    show_report("outputs/v1/reports/classification_report_no-aug.txt", "No Augmentation")
+    st.markdown("## Final Model Evaluation")
+    st.markdown("### Classification Reports")
 
+    option = st.selectbox(
+        "Choose which report to view:",
+        ["Full Dataset", "Small Dataset", "No Augmentation"]
+    )
+
+    if option == "Full Dataset":
+        df = load_report_df("outputs/v1/reports/classification_report_full.txt")
+    elif option == "Small Dataset":
+        df = load_report_df("outputs/v1/reports/classification_report_small.txt")
+    else:
+        df = load_report_df("outputs/v1/reports/classification_report_no-aug.txt")
+    st.dataframe(df, use_container_width=True, hide_index=True)
 
 def load_report_df(file_path):
     rows = []
@@ -72,8 +82,3 @@ def load_report_df(file_path):
                             int(support)])
     return pd.DataFrame(rows, columns=["Label", "Precision", "Recall",
                         "F1-score", "Support"])
-
-def show_report(file_path, title):
-    st.subheader(title)
-    df = load_report_df(file_path)
-    st.dataframe(df, use_container_width=True, hide_index=True)
