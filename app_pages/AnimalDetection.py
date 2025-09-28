@@ -20,7 +20,7 @@ def load_detector():
 
 
 def page_animal_detection(df=None):
-    st.header("Animal Detection App")
+    st.header("Animal Detection")
     st.info(
         """
         Upload an image of an animal, and the model will predict the most likely 
@@ -33,7 +33,7 @@ def page_animal_detection(df=None):
     model, target_map = load_detector()
 
     uploaded_files = st.file_uploader(
-        "Upload one or more animal images",
+        "Upload animal images (JPG/PNG)",
         type=["jpg", "jpeg", "png"],
         accept_multiple_files=True
     )
@@ -90,7 +90,8 @@ def page_animal_detection(df=None):
 
         # Results table
         df_predictions = pd.DataFrame(results)
-        st.success("Analysis Report: Predictions are ready ✅")
+        st.success(
+            "Analysis Report: Predictions completed — see results below ✅")
         st.table(df_predictions)
 
         # Download CSV
@@ -105,5 +106,5 @@ def df_as_csv(df):
     return (
         f'<a href="data:file/csv;base64,{b64}" '
         f'download="AnimalPredictions_{datetime_now}.csv" '
-        f'target="_blank">Download Results as CSV</a>'
+        f'target="_blank">📥 Download Predictions as CSV</a>'
     )
