@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 
 def page_ml_prediction_metrics():
@@ -59,6 +60,12 @@ def page_ml_prediction_metrics():
         - F1-score   
         """
     )
+
+def load_report_df(file_path):
+    rows = []
+    with open(file_path) as f:
+        for line in f:
+            parts = line.strip().split()
 
 def show_report(file_path, title):
     st.subheader(title)
