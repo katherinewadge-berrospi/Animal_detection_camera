@@ -65,9 +65,12 @@ def page_hypotheses_validation():
     st.dataframe(subset_results_df)
     st.bar_chart(subset_results_df.set_index("Dataset")[["Accuracy"]])
     st.bar_chart(subset_results_df.set_index("Dataset")[["Loss"]])
-    st.info(
-        "Partial support: Larger dataset improved accuracy by..."
-        "This confirms(?) the hypothesis that more data improves performance."
+    st.success(
+        "Support: The full dataset achieved **98%** accuracy and F1 score with"
+        " a loss of **5%**. Whereas, the smaller datset achieved **96%**"
+        " accuracy and **13%** Loss."
+        "This confirms that the larger dataset had a higher accuracy, but the "
+        "small dataset still performed well."
     )
     st.write("---")
     st.markdown("## Hypothesis 3")
@@ -113,8 +116,9 @@ def page_hypotheses_validation():
     st.bar_chart(aug_results_df.set_index("Setting")[["Loss"]])
 
     st.error(
-        "Not supported: The model trained without augmentation performed " \
-        "slightly better than the augmented model. Non-augmentation did " \
-        "improve accuracy or F1 score, indicating that in this case, " \
-        "augmentation may not be required."
+        "Rejected: The augmented model achieved **98%** accuracy and F1 score**"
+        " with a loss of **5%**, while the non-augmented model achieved "
+        "**99%** accuracy and F1 score** with a lower loss of just **2%**. "
+        "This contradicts the hypothesis, showing that augmentation did not "
+        "improve performance and may not be required for this dataset."
     )
