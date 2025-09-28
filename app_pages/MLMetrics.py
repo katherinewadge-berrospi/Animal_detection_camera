@@ -45,8 +45,11 @@ def page_ml_prediction_metrics():
         st.image("outputs/v1/no_aug/confusion_matrix_no_aug.png",
             caption="Without Image Augmentation")
     st.write("---")
-    st.subheader("Classification reports")
+    st.header("Classification Reports")
 
+    show_report("outputs/v1/reports/classification_report_full.txt", "Full Dataset")
+    show_report("outputs/v1/reports/classification_report_small.txt", "Small Dataset")
+    show_report("outputs/v1/reports/classification_report_no-aug.txt", "No Augmentation")
 
     st.subheader("Final Model Evaluation")
     st.markdown(
@@ -56,3 +59,9 @@ def page_ml_prediction_metrics():
         - F1-score   
         """
     )
+
+def show_report(file_path, title):
+    st.subheader(title)
+    with open(file_path) as f:
+        report_text = f.read()
+    st.text_area("Report", report_text, height=300)
