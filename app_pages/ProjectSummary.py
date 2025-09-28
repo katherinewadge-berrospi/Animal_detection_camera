@@ -11,14 +11,14 @@ def page_project_summary():
         The project focuses on automatic detection of animal species from 
         images for our client, Steve B. The aim is to support ecological 
         research, wildlife monitoring, and conservation efforts by classifying 
-        animals accurately using computer prediction techniques.
+        animals accurately using machine learning techniques.
         """
     )
 
     st.subheader("Project Dataset")
     st.write(
         """
-        The dataset contains 14.7k images of animal images across 64 species,
+        The dataset contains 14.7k images of animals across 64 species,
         sourced from Kaggle (including, but not exclusive to, antelope, beaver, 
         chimpanzee, and dolphin). 
         Images were pre-processed, augmented, and split into training, 
@@ -46,9 +46,9 @@ def page_project_summary():
         """
         - **Hypothesis 1**: The model can differentiate between animal species
         based on visual features such as colour and shape.
-        - **Hypothesis 2**: Training the model on a smaller dataset reduces model
-        performance and accuracy.
-        - **Hypothesis 3**: Training the model on non-augmented images will reduce
+        - **Hypothesis 2**: Training the model on a smaller dataset reduces 
         model performance and accuracy.
+        - **Hypothesis 3**: Training the model on images without augmentation 
+        will reduce model performance and accuracy.
         """
     )
