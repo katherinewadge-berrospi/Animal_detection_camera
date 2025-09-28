@@ -2,13 +2,11 @@
 .ipynb_checkpoints/
 inputs/
 datasets/
-outputs/
-*.png
+outputs/*
+!outputs/v1/app_images/*.png 
 *.jpg
 *.jpeg
 *.gif
-*.tiff
-*.bmp
 *.h5
 *.ckpt
 *.keras
@@ -23,4 +21,3 @@ node_modules/
 kaggle.json
 tests/
 docs/
-images/
