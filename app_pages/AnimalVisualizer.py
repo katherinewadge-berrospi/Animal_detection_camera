@@ -21,7 +21,7 @@ def page_animal_visualizer(df: pd.DataFrame):
         selected_classes = st.multiselect("Select species:", labels, 
         default=labels[:2])
         if selected_classes:
-            fig = plot_mean_variability_for_classes(df, selected_classes)
+            fig = plot_mean_variability_for_classes(selected_classes)
             st.pyplot(fig)
 
     # Checkbox 2 – Compare average images across species
