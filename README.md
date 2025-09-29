@@ -58,7 +58,16 @@ The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonyther
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+- **Automate animal species identification from images**
+Problem:
+- Manually identifying animals from large datasets is time consuming.
+- Prone to human errors.
+Solution:
+- A deep learning model trained on many animal species to determine unseen images, accurately.
+Advantages:
+- Fast and reliable animal identification
+- Supports conservation efforts and wildlife monitoring by reducing manual workload.
+- Element of scalability as new species can be added to the model's training.
 
 ## Dashboard Design
 
