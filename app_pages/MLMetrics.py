@@ -8,7 +8,7 @@ def page_ml_prediction_metrics():
     st.header("ML Prediction Metrics")
 
     st.markdown("## Label Distribution")
-    label_counts = pd.read_csv("outputs/v1/label_distribution.csv")
+    label_counts = pd.read_csv("app_artifacts/label_distribution.csv")
     # Sort alphabetically
     label_counts = label_counts.sort_values("Label")
     fig = px.bar(
