@@ -2,39 +2,18 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import joblib
 
 
 def page_ml_prediction_metrics():
     """Page 5: ML Prediction Metrics"""
-    st.header("ML Prediction Metrics")
-    # Load metrics if available
-    try:
-        eval_results = joblib.load("app_artifacts/evaluation.pkl")
-    except FileNotFoundError:
-        st.error("Evaluation file not found.")
-        return
+    st.markdown("# ML Prediction Metrics")
+    
     st.markdown("## Label Distribution")
-    label_counts = pd.read_csv("app_artifacts/label_distribution.csv")
-    # Sort alphabetically
-    label_counts = label_counts.sort_values("Label")
-    fig = px.bar(
-        label_counts,
-        x="Frequency",
-        y="Label",
-        color="Set",
-        title="Label Distribution",
-        barmode="group",
-        orientation="h"
+    st.image(
+        "app_images/labels_distribution_rows.jpg",
+        caption="Label distribution across train, validation, and test sets",
+        use_container_width=True
     )
-    fig.update_yaxes(
-        categoryorder="array",
-        categoryarray=sorted(label_counts["Label"].unique())
-    )
-    fig.update_layout(
-        height=15 * label_counts["Label"].nunique(),
-    )
-    st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("## Model Training History")
     st.markdown("### Accuracy Curves")
@@ -49,6 +28,7 @@ def page_ml_prediction_metrics():
         st.image("app_images/no_aug/model_training_acc.jpg", 
             caption="Accuracy Curve Without Image Augmentation")
     st.write("---")
+
     st.markdown("### Loss Curves")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -61,6 +41,7 @@ def page_ml_prediction_metrics():
         st.image("app_images/no_aug/model_training_losses.jpg", 
             caption="Loss Curve Without Image Augmentation")
     st.write("---")
+
     st.markdown("### Confusion Matrices: True vs Predicted Species")
     col1, col2, col3 = st.columns(3)
     with col1:
