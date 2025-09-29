@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="Animal Detection Camera",
+    page_icon="🦉",
+)
+
 from app_pages.ProjectSummary import page_project_summary
 from app_pages.AnimalVisualizer import page_animal_visualizer
 from app_pages.AnimalDetection import page_animal_detection
