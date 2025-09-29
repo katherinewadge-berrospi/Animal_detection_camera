@@ -2,7 +2,8 @@ import os
 import streamlit as st
 from PIL import Image
 
-APP_IMG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app_images"))
+APP_IMG_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "app_images"))
 
 def page_animal_visualizer(df=None):
     st.header("Animal Visualizer")
