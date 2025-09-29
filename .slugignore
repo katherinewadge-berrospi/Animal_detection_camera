@@ -1,3 +1,4 @@
+jupyter_notebooks/
 *.ipynb
 .ipynb_checkpoints/
 inputs/
