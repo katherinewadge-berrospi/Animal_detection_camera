@@ -6,7 +6,7 @@ outputs/*
 *.png
 *.jpeg
 *.gif
-*.h5
+*.keras
 *.ckpt
 *.pt
 *.joblib
