@@ -2,10 +2,7 @@
 .ipynb_checkpoints/
 inputs/
 datasets/
-outputs/**
-!outputs/v1/
-!outputs/v1/final_model.keras
-!outputs/v1/label_distribution.csv
+outputs/*
 *.png
 *.jpeg
 *.gif
