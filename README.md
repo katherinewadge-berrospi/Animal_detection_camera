@@ -1,31 +1,13 @@
 # Animal Detection Camera
 
-Delete underneath section when ready. do not keep...
-
----
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, then you can create a new one with _Regenerate API Key_.
-
----
-
 ## Business Requirements
 
-The client for this project, Steve Backshall, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
+The client for this project, Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
 
 - **Business requirement 1:**
-  - The client is interested in visually differentiating animal species using image data.
+  - Can the system highlight visual differences between species (e.g., average features, variability)?
 - **Business requirement 2:**
-  - The client wants the system to identify which animal species is present in an image.
+  - Can the system predict which animal species is present in an uploaded image with high accuracy?
 
 ### Research Needs
 
@@ -42,7 +24,7 @@ The client for this project, Steve Backshall, wants a predictive system that can
 
 ### Data Collection
 
-The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonytherrien/image-classification-64-classes-animal). Then, a fictitious user story where predictive analytics can be applied in a real project in the workplace was created. The dataset contains over 14 thousand images (6BG) that was subdivided into 64 species, each species had their own folder.
+The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonytherrien/image-classification-64-classes-animal). Then, a fictitious user story where predictive analytics can be applied in a real project in the workplace was created. The dataset contains over 14 thousand images  that was subdivided into 64 species, each species had their own folder.
 
 **Steps taken:**
 
@@ -57,15 +39,22 @@ The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonyther
 - To save space, files were moved into split folders rather than duplicating the originals.
 - Original unsplit dataset removed once splits were confirmed.
 
+## Hypotheses
+
+- **Hypothesis 1**: The model can differentiate between animal species based on visual features such as colour and shape.
+- **Hypothesis 2**: Training the model on a smaller dataset reduces model performance and accuracy.
+- **Hypothesis 3**: Training the model on images without augmentation will reduce model performance and accuracy.
+
 ---
 
-## Hypothesis and how to validate?
+## The Rationale to Map the Business Requirements to the Data Visualisations and ML Tasks
 
-- List here your project hypothesis(es) and how you envision validating it (them).
-
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
-
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+- Business requirement 1, mapped tasks:
+  - Create visualizations showing average and variability images, label distribution interactive chart for train/validation/ test sets, and augmentation effects.
+  - Demonstrates the dataset quality, balance, and variability.
+- Business requirement 2, mapped tasks:
+  - Build and train a CNN model (using MobileNetV2) to evaluate accuracy, losses, precision, recall, F1-score, and confusion matrix.
+  - Demonstrate the capability of the model and validate its predictability and its usefullness.
 
 ## ML Business Case
 
