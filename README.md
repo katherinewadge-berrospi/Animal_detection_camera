@@ -45,8 +45,6 @@ The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonyther
 - **Hypothesis 2**: Training the model on a smaller dataset reduces model performance and accuracy.
 - **Hypothesis 3**: Training the model on images without augmentation will reduce model performance and accuracy.
 
----
-
 ## The Rationale to Map the Business Requirements to the Data Visualisations and ML Tasks
 
 - Business requirement 1, mapped tasks:
@@ -73,11 +71,14 @@ Advantages:
 
 | Page | Features | Image |
 | --- | --- | --- |
-| Project Summary | Overview of objectives and business requirements. Dataset sources and workflow. |  |
-| Animal Visualizer | Average and variability plots. Select species to compare. Preview small montage from datasets. All dropdown and checkboxes. |  |
-| Animal Detection | Upload image functionality. Display predicted species & confidence scores. Download the results. |  |
-| Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) |  |
-| ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Classification reports in dropdown box. Confusion matrices highlighting misclassified species. |  |
+| All pages | Navigation bar | ![Nav Bar](/assets/img/nav-bar.png) |
+| Project Summary | Overview of objectives and business requirements. Dataset sources and workflow. | ![Business Requirements & Hypotheses](assets/img/br-hypotheses.png) |
+| Animal Visualizer | Average and variability plots. Select species to compare. Preview small montage from datasets. All dropdown and checkboxes. | ![Average & variability of species](assets/img/visualise-two-species.png) ![Image Montage](/assets/img/visualize-montage.png) |
+| Animal Detection | Upload image functionality. Display predicted species & confidence scores. Download the results. | ![Upload Image](assets/img/upload-image.png) ![Example prediction](assets/img/example-prediction.png) ![Example download](assets/img/example-download-csv.png) |
+| Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) | ![Hypothesis](assets/img/hypothesis-validation.png) ![Hypothesis 1](assets/img/hypoth-one-message.png) ![Hypothesis 2](assets/img/hypoth-two-message.png) ![Hypothesis 3](assets/img/hypoth-three-message.png) |
+| ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Classification reports in dropdown box. Confusion matrices highlighting misclassified species. | ![Classification reports](assets/img/view-reports.png) |
+
+---
 
 delete stuff below when finished:
 
