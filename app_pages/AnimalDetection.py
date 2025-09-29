@@ -13,7 +13,7 @@ import gc
 # Cache model + class mapping so they load once
 @st.cache_resource
 def load_detector():
-    model = load_model("app_artifacts/final_model.keras")
+    model = load_model("app_artifacts/final_model.h5")
     class_indices = joblib.load("app_artifacts/class_indices.pkl")
     target_map = {v: k for k, v in class_indices.items()}
     return model, target_map
