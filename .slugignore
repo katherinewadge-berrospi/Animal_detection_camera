@@ -9,6 +9,7 @@ outputs/*
 *.tiff
 *.bmp
 *.keras
+*.h5
 *.ckpt
 *.pt
 *.joblib
