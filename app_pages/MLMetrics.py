@@ -33,37 +33,37 @@ def page_ml_prediction_metrics():
     st.markdown("### Accuracy Curves")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("outputs/v1/model_training_acc.png", 
+        st.image("app_images/model_training_acc.jpg", 
             caption="Accuracy Curve Original Dataset")
     with col2:
-        st.image("outputs/v1/small-data/small_model_training_acc.png", 
+        st.image("app_images/small-data/small_model_training_acc.jpg", 
             caption="Accuracy Curve Small Dataset")
     with col3:
-        st.image("outputs/v1/no_aug/model_training_acc.png", 
+        st.image("app_images/no_aug/model_training_acc.jpg", 
             caption="Accuracy Curve Without Image Augmentation")
     st.write("---")
     st.markdown("### Loss Curves")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("outputs/v1/model_training_losses.png", 
+        st.image("app_images/model_training_losses.jpg", 
             caption="Loss Curve Original Dataset")
     with col2:
-        st.image("outputs/v1/small-data/small_model_training_losses.png", 
+        st.image("app_images/small-data/small_model_training_losses.jpg", 
             caption="Loss Curve Small Dataset")
     with col3:
-        st.image("outputs/v1/no_aug/model_training_losses.png", 
+        st.image("app_images/no_aug/model_training_losses.jpg", 
             caption="Loss Curve Without Image Augmentation")
     st.write("---")
     st.markdown("### Confusion Matrices: True vs Predicted Species")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("outputs/v1/confusion_matrix.png",
+        st.image("app_images/confusion_matrix_full.jpg",
             caption="Original Dataset")
     with col2:
-        st.image("outputs/v1/small-data/confusion_matrix.png",
+        st.image("app_images/small-data/confusion_matrix.jpg",
             caption="Small Dataset")
     with col3:
-        st.image("outputs/v1/no_aug/confusion_matrix_no_aug.png",
+        st.image("app_images/no_aug/confusion_matrix_no_aug.jpg",
             caption="Without Image Augmentation")
     st.write("---")
 
@@ -76,11 +76,11 @@ def page_ml_prediction_metrics():
     )
 
     if option == "Full Dataset":
-        df = load_report_df("outputs/v1/reports/classification_report_full.txt")
+        df = load_report_df("app_images/report/classification_full.txt")
     elif option == "Small Dataset":
-        df = load_report_df("outputs/v1/reports/classification_report_small.txt")
+        df = load_report_df("app_images/report/classification_small.txt")
     else:
-        df = load_report_df("outputs/v1/reports/classification_report_no-aug.txt")
+        df = load_report_df("app_images/report/classification_no-aug.txt")
     st.dataframe(df, use_container_width=True, hide_index=True)
 
 def load_report_df(file_path):

@@ -17,11 +17,11 @@ def page_hypotheses_validation():
     st.markdown("#### Training History")
     col1, col2 = st.columns(2)
     with col1:
-        st.image("outputs/v1/model_training_acc.png", caption="Accuracy Curve")
+        st.image("app_images/model_training_acc.jpg", caption="Accuracy Curve")
     with col2:
-        st.image("outputs/v1/model_training_losses.png", caption="Loss Curve")
+        st.image("app_images/model_training_losses.jpg", caption="Loss Curve")
     st.image(
-        "outputs/v1/confusion_matrix.png",
+        "app_images/confusion_matrix_full.jpg",
         caption="Confusion Matrix: True vs Predicted Species"
         )
     st.success("Supported: Model achieves high accuracy across species.")
@@ -39,21 +39,21 @@ def page_hypotheses_validation():
     st.markdown("#### Training History")
     col1, col2 = st.columns(2)
     with col1:
-        st.image("outputs/v1/model_training_acc.png", 
+        st.image("app_images/model_training_acc.jpg", 
             caption="Accuracy Curve Full Dataset")
     with col2:
-        st.image("outputs/v1/small-data/small_model_training_acc.png", 
+        st.image("app_images/small-data/small_model_training_acc.jpg", 
             caption="Accuracy Curve Small Dataset")
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image("outputs/v1/model_training_losses.png", 
+        st.image("app_images/model_training_losses.jpg", 
             caption="Loss Curve Full Dataset")
     with col2:
-        st.image("outputs/v1/small-data/small_model_training_losses.png", 
+        st.image("app_images/small-data/small_model_training_losses.jpg", 
             caption="Loss Curve Small Dataset")
 
-    st.image("outputs/v1/small-data/confusion_matrix.png",
+    st.image("app_images/small-data/confusion_matrix.jpg",
         caption="Confusion Matrix: True vs Predicted Species (Small Dataset)")
     results = {
         "Dataset": ["Full Data", "Small Data"],
@@ -86,21 +86,21 @@ def page_hypotheses_validation():
     st.markdown("#### Without Augmentation")
     col1, col2 = st.columns(2)
     with col1:
-        st.image("outputs/v1/model_training_acc.png", 
+        st.image("app_images/model_training_acc.jpg", 
             caption="Accuracy Curve With Image Augmentation")
     with col2:
-        st.image("outputs/v1/no_aug/model_training_acc.png", 
+        st.image("app_images/no_aug/model_training_acc.jpg", 
             caption="Accuracy Curve Without Image Augmentation")
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image("outputs/v1/model_training_losses.png", 
+        st.image("app_images/model_training_losses.jpg", 
             caption="Loss Curve With Image Augmentation")
     with col2:
-        st.image("outputs/v1/no_aug/model_training_losses.png", 
+        st.image("app_images/no_aug/model_training_losses.jpg", 
             caption="Loss Curve Without Image Augmentation")
 
-    st.image("outputs/v1/no_aug/confusion_matrix_no_aug.png",
+    st.image("app_images/no_aug/confusion_matrix_no_aug.jpg",
         caption="Confusion Matrix: No Augmentation")
 
     augmentation_results = {
