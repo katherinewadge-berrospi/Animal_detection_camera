@@ -80,7 +80,7 @@ def page_ml_prediction_metrics():
     elif option == "Small Dataset":
         df = load_report_df("app_images/report/classification_small.txt")
     else:
-        df = load_report_df("app_images/report/classification_no-aug.txt")
+        df = load_report_df("app_images/report/classification_no_aug.txt")
     st.dataframe(df, use_container_width=True, hide_index=True)
 
 def load_report_df(file_path):
