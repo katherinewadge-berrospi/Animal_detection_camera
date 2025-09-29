@@ -121,8 +121,8 @@ delete stuff below when finished:
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
+Example image from Google Images:
+![example cat](assets/img/example-cat.png)
 
 ## Acknowledgements (optional)
 
