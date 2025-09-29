@@ -8,7 +8,6 @@ outputs/*
 *.gif
 *.h5
 *.ckpt
-*.keras
 *.pt
 *.pkl
 *.joblib

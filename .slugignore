@@ -10,7 +10,6 @@ outputs/
 *.bmp
 *.h5
 *.ckpt
-*.keras
 *.pt
 *.pkl
 *.joblib
