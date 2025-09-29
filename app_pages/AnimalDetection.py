@@ -2,21 +2,25 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import pandas as pd
-from tensorflow.keras.models import load_model
 import joblib
 import base64
 from datetime import datetime
 from io import BytesIO
 import gc
+import tensorflow as tf
 
 
 # Cache model + class mapping so they load once
 @st.cache_resource
 def load_detector():
-    model = load_model("app_artifacts/final_model.h5")
+    interpreter = tf.lite.Interpreter(model_path="app_artifacts/final_model.tflite")
+    interpreter.allocate_tensors()
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+
     class_indices = joblib.load("app_artifacts/class_indices.pkl")
     target_map = {v: k for k, v in class_indices.items()}
-    return model, target_map
+    return interpreter, input_details, output_details, target_map
 
 
 def page_animal_detection(df=None):
