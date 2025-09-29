@@ -3,10 +3,13 @@
 inputs/
 datasets/
 outputs/*
+!outputs/v1/
+!outputs/v1/final_model.keras
 *.png
 *.jpeg
 *.gif
 *.h5
+*.keras
 *.ckpt
 *.pt
 *.pkl
