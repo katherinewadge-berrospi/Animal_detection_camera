@@ -59,7 +59,7 @@ def page_animal_detection(df=None):
                 use_container_width=True,
             )
 
-            img_array = np.array(img_resized) / 255.0
+            img_array = np.array(img_resized, dtype=np.float32) / 255.0
             img_array = np.expand_dims(img_array, axis=0)
 
             # Clear RAM
