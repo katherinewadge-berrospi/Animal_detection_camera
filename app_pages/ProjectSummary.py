@@ -52,3 +52,10 @@ def page_project_summary():
         will reduce model performance and accuracy.
         """
     )
+
+    st.write("---")
+    st.warning("**Disclaimer:** The dataset used in this project includes "
+            "AI-generated images of animals. Results should therefore be "
+            "interpreted as a demonstration of predictive modelling, not as a "
+            "production-ready wildlife identification system."
+    )
