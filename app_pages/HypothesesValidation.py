@@ -58,7 +58,7 @@ def page_hypotheses_validation():
     results = {
         "Dataset": ["Full Data", "Small Data"],
         "Accuracy": [0.98, 0.96],
-        "Loss": [0.05, 0.13],
+        "Loss": [0.05, 0.14],
         "F1-score": [0.98, 0.96]
     }
     subset_results_df = pd.DataFrame(results)
@@ -106,7 +106,7 @@ def page_hypotheses_validation():
     augmentation_results = {
         "Setting": ["With Augmentation", "Without Augmentation"],
         "Accuracy": [0.98, 0.99],
-        "Loss": [0.05, 0.02],
+        "Loss": [0.05, 0.03], 
         "F1-score": [0.98, 0.99]
     }
     aug_results_df = pd.DataFrame(augmentation_results)
