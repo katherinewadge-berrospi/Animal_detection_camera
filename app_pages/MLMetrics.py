@@ -1,12 +1,19 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
+import joblib
 
 
 def page_ml_prediction_metrics():
     """Page 5: ML Prediction Metrics"""
     st.header("ML Prediction Metrics")
-
+    # Load metrics if available
+    try:
+        eval_results = joblib.load("app_artifacts/evaluation.pkl")
+    except FileNotFoundError:
+        st.error("Evaluation file not found.")
+        return
     st.markdown("## Label Distribution")
     label_counts = pd.read_csv("app_artifacts/label_distribution.csv")
     # Sort alphabetically
