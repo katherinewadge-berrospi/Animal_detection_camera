@@ -13,7 +13,7 @@ def page_hypotheses_validation():
         features such as colour and shape.
         """
     )
-    st.markdown("### **Validation**")
+    st.markdown("- **Validation**: Review training history and confusion matrix.")
     st.markdown("#### Training History")
     col1, col2 = st.columns(2)
     with col1:
@@ -33,7 +33,7 @@ def page_hypotheses_validation():
         accuracy.
         """
     )
-    st.markdown("### **Validation**: Compare results on smaller vs. larger " \
+    st.markdown("- **Validation**: Compare results on smaller vs. larger " \
     "subsets.")
     
     st.markdown("#### Training History")
@@ -62,13 +62,13 @@ def page_hypotheses_validation():
         "F1-score": [0.98, 0.96]
     }
     subset_results_df = pd.DataFrame(results)
-    st.dataframe(subset_results_df)
+    st.table(subset_results_df)
     st.bar_chart(subset_results_df.set_index("Dataset")[["Accuracy"]])
     st.bar_chart(subset_results_df.set_index("Dataset")[["Loss"]])
     st.success(
         "Support: The full dataset achieved **98%** accuracy and F1-score with"
         " a loss of **5%**. Whereas, the smaller dataset achieved **96%**"
-        " accuracy and F1-score with a higher loss of **13%**."
+        " accuracy and F1-score with a higher loss of **14%**."
         "This confirms that the larger dataset delivered stronger performance, "
         "though the small dataset still performed well."
     )
@@ -110,15 +110,14 @@ def page_hypotheses_validation():
         "F1-score": [0.98, 0.99]
     }
     aug_results_df = pd.DataFrame(augmentation_results)
-    st.dataframe(aug_results_df)
-
+    st.table(aug_results_df)
     st.bar_chart(aug_results_df.set_index("Setting")[["Accuracy"]])
     st.bar_chart(aug_results_df.set_index("Setting")[["Loss"]])
 
     st.error(
         "Rejected: The augmented model achieved **98%** accuracy and F1-score**"
         " with a loss of **5%**, while the non-augmented model achieved "
-        "**99%** accuracy and F1-score with a lower loss of just **2%**. "
+        "**99%** accuracy and F1-score with a lower loss of just **3%**. "
         "This contradicts the hypothesis, showing that augmentation did not "
         "improve performance and may not be required for this dataset."
     )
