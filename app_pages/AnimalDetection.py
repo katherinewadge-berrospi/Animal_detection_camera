@@ -34,7 +34,7 @@ def page_animal_detection(df=None):
     )
     st.write("---")
 
-    model, target_map = load_detector()
+    interpreter, input_details, output_details, target_map = load_detector()
 
     uploaded_files = st.file_uploader(
         "Upload animal images (JPG/PNG)",
@@ -51,11 +51,11 @@ def page_animal_detection(df=None):
 
             with Image.open(image_stream) as img_pil:
                 img_pil = img_pil.convert("RGB")
-                img_resized = img_pil.resize((128, 128))
+                img_resized = img_pil.resize((96, 96))
 
             st.image(
                 img_resized,
-                caption=f"Resized image: {uploaded_file.name} (128x128 pixels)",
+                caption=f"Resized image: {uploaded_file.name} (96x96 pixels)",
                 use_container_width=True,
             )
 
@@ -66,8 +66,12 @@ def page_animal_detection(df=None):
             del img_pil
             gc.collect()
 
+            # TFLite Inference
+            interpreter.set_tensor(input_details[0]['index'], img_array)
+            interpreter.invoke()
+            predictions = interpreter.get_tensor(output_details[0]['index'])
+
             # Integrate Model Predictions
-            predictions = model.predict(img_array)
             pred_idx = np.argmax(predictions)
             pred_species = target_map[pred_idx]
             confidence = predictions[0][pred_idx] * 100
