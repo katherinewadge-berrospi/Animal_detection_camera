@@ -1,0 +1,73 @@
+
+--- Classification Report ---
+              precision    recall  f1-score   support
+
+    antelope       1.00      1.00      1.00        44
+        bear       0.98      1.00      0.99        44
+      beaver       1.00      1.00      1.00        44
+         bee       1.00      1.00      1.00        44
+       bison       1.00      0.89      0.94        44
+   blackbird       1.00      1.00      1.00        44
+     buffalo       0.91      0.98      0.95        44
+   butterfly       1.00      1.00      1.00        44
+       camel       0.98      1.00      0.99        44
+         cat       1.00      1.00      1.00        87
+     cheetah       1.00      1.00      1.00        44
+  chimpanzee       1.00      1.00      1.00        44
+  chinchilla       1.00      1.00      1.00        44
+         cow       0.96      1.00      0.98        44
+        crab       1.00      1.00      1.00        44
+   crocodile       1.00      0.95      0.98        44
+        deer       1.00      0.98      0.99        44
+         dog       1.00      1.00      1.00        92
+     dolphin       0.98      1.00      0.99        44
+      donkey       0.98      0.98      0.98        44
+        duck       1.00      1.00      1.00        44
+       eagle       1.00      1.00      1.00        44
+    elephant       0.94      1.00      0.97        59
+      falcon       0.90      0.80      0.84        44
+      ferret       1.00      1.00      1.00        44
+    flamingo       1.00      1.00      1.00        44
+         fox       1.00      1.00      1.00        44
+        frog       1.00      1.00      1.00        63
+     giraffe       0.98      1.00      0.99        44
+        goat       0.98      0.95      0.97        44
+       goose       1.00      1.00      1.00        44
+     gorilla       1.00      1.00      1.00        44
+ grasshopper       0.98      1.00      0.99        44
+        hawk       0.82      0.91      0.86        44
+    hedgehog       0.98      0.98      0.98        44
+hippopotamus       1.00      0.95      0.98        44
+       hyena       1.00      1.00      1.00        44
+      iguana       0.88      0.98      0.92        44
+      jaguar       0.94      0.89      0.92        38
+    kangaroo       1.00      0.98      0.99        44
+       koala       1.00      1.00      1.00        44
+       lemur       1.00      1.00      1.00        44
+     leopard       0.91      0.95      0.93        44
+      lizard       1.00      0.89      0.94        44
+        lynx       1.00      1.00      1.00        44
+        mole       1.00      0.94      0.97        36
+    mongoose       1.00      1.00      1.00        44
+     ostrich       1.00      1.00      1.00        44
+       otter       1.00      1.00      1.00        44
+         owl       1.00      1.00      1.00        44
+       panda       0.98      0.98      0.98        44
+     peacock       1.00      1.00      1.00        44
+     penguin       1.00      1.00      1.00        44
+   porcupine       0.96      0.98      0.97        44
+     raccoon       1.00      1.00      1.00        44
+        seal       0.95      0.95      0.95        44
+       sheep       0.96      0.98      0.97        44
+       snail       1.00      1.00      1.00        44
+       snake       1.00      1.00      1.00        44
+      spider       1.00      1.00      1.00        44
+       squid       1.00      0.98      0.99        44
+      walrus       0.98      0.95      0.97        44
+       whale       1.00      1.00      1.00        44
+        wolf       1.00      1.00      1.00        44
+
+    accuracy                           0.98      2927
+   macro avg       0.98      0.98      0.98      2927
+weighted avg       0.98      0.98      0.98      2927
+
