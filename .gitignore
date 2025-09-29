@@ -3,7 +3,6 @@
 inputs/
 datasets/
 outputs/*
-*.png
 *.jpeg
 *.gif
 *.keras
