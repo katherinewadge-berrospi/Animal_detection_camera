@@ -11,7 +11,6 @@ outputs/*
 *.h5
 *.ckpt
 *.pt
-*.pkl
 *.joblib
 *.zip
 __pycache__/

@@ -14,7 +14,7 @@ import gc
 @st.cache_resource
 def load_detector():
     model = load_model("app_artifacts/final_model.keras")
-    class_indices = joblib.load("outputs/v1/class_indices.pkl")
+    class_indices = joblib.load("app_artifacts/class_indices.pkl")
     target_map = {v: k for k, v in class_indices.items()}
     return model, target_map
 
