@@ -71,6 +71,16 @@ Advantages:
 
 ## Dashboard Design
 
+| Page | Features | Image |
+| --- | --- | --- |
+| Project Summary | Overview of objectives and business requirements. Dataset sources and workflow. |  |
+| Animal Visualizer | Average and variability plots. Select species to compare. Preview small montage from datasets. All dropdown and checkboxes. |  |
+| Animal Detection | Upload image functionality. Display predicted species & confidence scores. Download the results. |  |
+| Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) |  |
+| ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Classification reports in dropdown box. Confusion matrices highlighting misclassified species. |  |
+
+delete stuff below when finished:
+
 - List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
 - Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
 
