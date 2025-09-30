@@ -1,8 +1,12 @@
 # Animal Detection Camera
 
+## The Client
+
+Our client, Steve B, is a wildlife and conservation enthusiast who want an automated way of monitoring wildlife across the world. He wants to do this by adding an automated predictive softeware to animal trap cameras that will be left in rural areas to film any wildlife that passes by. This would reduce the manual workload of having to go throught the footage by hand.
+
 ## Business Requirements
 
-The client for this project, Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
+Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
 
 - **Business requirement 1:**
   - Can the system highlight visual differences between species (e.g., average features, variability)?
@@ -76,7 +80,7 @@ Advantages:
 | Animal Visualizer | Average and variability plots. Select species to compare. Preview small montage from datasets. All dropdown and checkboxes. | ![Average & variability of species](assets/img/visualise-two-species.png) ![Image Montage](/assets/img/visualize-montage.png) |
 | Animal Detection | Upload image functionality. Display predicted species & confidence scores. Download the results. | ![Upload Image](assets/img/upload-image.png) ![Example prediction](assets/img/example-prediction.png) ![Example download](assets/img/example-download-csv.png) |
 | Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) | ![Hypothesis](assets/img/hypothesis-validation.png) ![Hypothesis 1](assets/img/hypoth-one-message.png) ![Hypothesis 2](assets/img/hypoth-two-message.png) ![Hypothesis 3](assets/img/hypoth-three-message.png) |
-| ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Classification reports in dropdown box. Confusion matrices highlighting misclassified species. | ![Classification reports](assets/img/view-reports.png) |
+| ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Confusion matrices highlighting misclassified species. Classification reports in dropdown box. Business Requirements checklist. | ![Classification reports](assets/img/view-reports.png) ![Business Requirements](assets/img/br-checklist.png) |
 
 ---
 
