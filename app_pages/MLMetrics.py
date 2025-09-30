@@ -9,11 +9,13 @@ def page_ml_prediction_metrics():
     st.markdown("# ML Prediction Metrics")
     
     st.markdown("## Label Distribution")
-    st.image(
-        "app_images/labels_distribution_rows.jpg",
-        caption="Label distribution across train, validation, and test sets",
-        use_container_width=True
+
+    option = st.selectbox(
+        "Select dataset split:",
+        ["Train", "Validation", "Test"]
     )
+    df_freq = pd.read_csv("app_artifacts/label_distribution.csv")
+    
 
     st.markdown("## Model Training History")
     st.markdown("### Accuracy Curves")
