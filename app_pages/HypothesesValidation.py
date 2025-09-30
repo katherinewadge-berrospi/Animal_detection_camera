@@ -24,20 +24,37 @@ def page_hypotheses_validation():
         "app_images/confusion_matrix_full.jpg",
         caption="Confusion Matrix: True vs Predicted Species"
         )
-    st.write("The images above show that the model's training accuracy improved" \
-    " steadily after the first few epochs. The validation accuracy remained" \
-    " constantly higher than training which shows the model is not overfitting." \
-    " This could be down to augmenting the images first or the dropout layers" \
-    " making it tougher to train but boosted validation performance.")
-    st.write("Both training and validation losses decreased over time, which" \
-    " shows that the model is optimizing well. There is also a small gap" \
-    " between training and validation losses which indicates the model is not" \
-    " overfitting. The low validation loss also indicates strong performance.")
-    st.write("The confusion matrix shows that the model is performing well" \
-    " across all species, as the diagonal line is the most prominent feature." \
-    " Only a few off-diagonal values are seen but these are faint which means" \
-    " the model rarely misclassified species. This is also evidence of high" \
-    " precision and recall.")
+    st.write(
+        """
+        **Accuracy:**
+        - The images above show that the model's training accuracy improved
+        steadily after the first few epochs.
+        - The validation accuracy remained constantly higher than training 
+        which shows the model is not overfitting.
+        - This could be down to augmenting the images first or the dropout layers
+        making it tougher to train but boosted validation performance.
+        """
+    )
+    st.write(
+        """
+        **Loss:**
+        - Both training and validation losses decreased over time, which
+        shows that the model is optimizing well.
+        - There is also a small gap between training and validation losses 
+        which indicates the model is not overfitting.
+        - The low validation loss also indicates strong performance.
+        """
+    )
+    st.write(
+        """
+        **Confusion Matrix:**
+        - The confusion matrix shows that the model is performing well across 
+        all species, as the diagonal line is the most prominent feature.
+        - Only a few off-diagonal values are seen but these are faint which 
+        means that the model rarely misclassified species. This is also evidence 
+        of high precision and recall.
+        """
+    )
     st.success("Supported: The model can distinguish between species with high " \
     " validation accuracy around 0.98 and low loss, indicating a strong " \
     " performance. The confusion matrix also shows the model rarely " \
