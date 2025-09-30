@@ -1,5 +1,8 @@
 # Animal Detection Camera
 
+View the live website: [Animal Detection Camera](https://animal-detection-camera-8ccd612a173b.herokuapp.com/)
+![Animal Detection Camera](assets/img/mockup.png)
+
 ## The Client
 
 Our client, Steve B, is a wildlife and conservation enthusiast who want an automated way of monitoring wildlife across the world. He wants to do this by adding an automated predictive software to animal trap cameras that will be left in rural areas to film any wildlife that passes by. This would reduce the manual workload of having to go throught the footage by hand.
