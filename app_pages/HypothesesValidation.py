@@ -59,7 +59,9 @@ def page_hypotheses_validation():
     " validation accuracy around 0.98 and low loss, indicating a strong " \
     " performance. The confusion matrix also shows the model rarely " \
     " misclassified species.")
+
     st.write("---")
+
     st.markdown("## Hypothesis 2")
     st.write(
         """
@@ -82,6 +84,37 @@ def page_hypotheses_validation():
 
     st.image("app_images/small-data/confusion_matrix.jpg",
         caption="Confusion Matrix: True vs Predicted Species (Small Dataset)")
+    st.write(
+        """
+        **Accuracy:**
+        - The accuracy curves show that the smaller dataset achieved high
+        accuracy quickly, then improved steadily. 
+        - The validation accuracy remained higher than the training accuracy and
+        also remained steady after first few epochs.
+        - The difference between training and validation accuracy is larger than
+        the full dataset, which shows weaker generalisation.
+        """
+    )
+    st.write(
+        """
+        **Loss:**
+        - Training and validation losses decrease but become more steady which
+        shows that the model is optimizing well.
+        - The gap between training and validation loss is larger than the full
+        dataset which indicates reduced stability.
+        """
+    )
+    st.write(
+        """
+        **Confusion Matrix:**
+        - The confusion matrix shows that the model is still performing well 
+        across species, as the diagonal line is still a prominent feature.
+        - However, more off-diagonal values are seen which means that the model
+        misclassified species more often. 
+        - This shows reduced precision and recall as certain species are being
+        confused with one another.
+        """
+    )
     results = {
         "Dataset": ["Full Data", "Small Data"],
         "Accuracy": [0.98, 0.96],
