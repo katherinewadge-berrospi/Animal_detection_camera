@@ -138,10 +138,6 @@ Advantages:
 | Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) | ![Hypothesis](assets/img/hypothesis-validation.png) ![Hypothesis 1](assets/img/hypoth-one-message.png) ![Hypothesis 2](assets/img/hypoth-two-message.png) ![Hypothesis 3](assets/img/hypoth-three-message.png) |
 | ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Confusion matrices highlighting misclassified species. Classification reports in dropdown box. Business Requirements checklist. | ![Classification reports](assets/img/view-reports.png) ![Business Requirements](assets/img/br-checklist.png) |
 
-## Unfixed Bugs
-
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
-
 ## Deployment
 
 ### Heroku
@@ -209,6 +205,11 @@ To reduce slug size (as mentioned previously) and avoid unnecessary GPU dependen
 |scikit-learn==1.3.1|Model evaluation (classification reports, confusion matrices)|
 |Pillow==10.0.1|Image loading and preprocessing|
 |joblib==1.4.2|Saving/loading class mappings and evaluation objects|
+
+## Unfixed Bugs  
+
+- At the time of submission, no major unfixed bugs remain.  
+- Previous issues (kernel crashes and Plotly slug size) were fixed (refer to Issue Faced section above).
 
 ## Credits
 
