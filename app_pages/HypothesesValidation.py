@@ -39,7 +39,7 @@ def page_hypotheses_validation():
         """
         **Loss:**
         - Both training and validation losses decreased over time, which
-        shows that the model is optimizing well.
+        shows that the model is optimising well.
         - There is also a small gap between training and validation losses 
         which indicates the model is not overfitting.
         - The low validation loss also indicates strong performance.
@@ -99,7 +99,7 @@ def page_hypotheses_validation():
         """
         **Loss:**
         - Training and validation losses decrease but become more steady which
-        shows that the model is optimizing well.
+        shows that the model is optimising well.
         - The gap between training and validation loss is larger than the full
         dataset which indicates reduced stability.
         """
@@ -132,7 +132,9 @@ def page_hypotheses_validation():
         "This confirms that the larger dataset delivered stronger performance, "
         "though the small dataset still performed well."
     )
+
     st.write("---")
+
     st.markdown("## Hypothesis 3")
     st.write(
         """
@@ -155,6 +157,38 @@ def page_hypotheses_validation():
 
     st.image("app_images/no_aug/confusion_matrix_no_aug.jpg",
         caption="Confusion Matrix: No Augmentation")
+    st.write(
+        """
+        **Accuracy:**
+        - The accuracy curves show that the non-augmented model achieved high
+        accuracy quickly, then improved steadily.
+        - The validation accuracy remained higher than the training accuracy
+        which indicates the model is not overfitting.
+        - The non-augmented model achieved slightly higher accuracy (0.99) than the
+        augmented model (0.98).
+        """
+    )
+    st.write(
+        """
+        **Loss:**
+        - Both training and validation losses steadily decreased which shows
+        there was stable optimisation.
+        - The non-augmented model achieved lower loss (0.03) than the full 
+        dataset (0.05).
+        - The gap between training and validation loss is slightly lower than
+        the augmented model.
+        """
+    )
+    st.write(
+        """
+        **Confusion Matrix:**
+        - The diagonal line is the most prominent feature which shows reliable
+        predictions across species were made.
+        - There were only a few faint off-diagonal values which means that the
+        model rarely misclassified species. 
+        - This is also evidence for high precision and recall.
+        """
+    )
 
     augmentation_results = {
         "Setting": ["With Augmentation", "Without Augmentation"],
@@ -168,9 +202,9 @@ def page_hypotheses_validation():
     st.bar_chart(aug_results_df.set_index("Setting")[["Loss"]])
 
     st.error(
-        "Rejected: The augmented model achieved **98%** accuracy and F1-score**"
-        " with a loss of **5%**, while the non-augmented model achieved "
-        "**99%** accuracy and F1-score with a lower loss of just **3%**. "
-        "This contradicts the hypothesis, showing that augmentation did not "
+        "Rejected: The non-augmented model outperformed the augmented model " \
+        "with **99%** accuracy and F1-score, and a loss of **3%**, compared " \
+        "to **98%** and **5%** respectively. " \
+        "This contradicts the hypothesis, showing that augmentation did not " \
         "improve performance and may not be required for this dataset."
     )
