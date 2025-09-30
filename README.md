@@ -172,9 +172,9 @@ Advantages:
 
 ## Final Summary
 
-Steve B was impressed by this successfull project; we delivered him a predicitive system to determine 64 species of animals. With the integration of MobileNetV2 and training strategies, the model performed well on test data. The interactive Streamlit dashboard links together the business requirements and validates the hypotheses. It is user-friendly and clear so that ecologists, students, and data scientists can benefit from it.
+Steve B was impressed by this successful project: we delivered him a predictive system that identifies 64 species of animals. With the integration of MobileNetV2 and training strategies, the model performed well on test data. The interactive Streamlit dashboard links together the business requirements and validates the hypotheses. It is user-friendly and clear so that ecologists, students, and data scientists can benefit from it.
 
-In the future, this pipeline can be transferred to a working camera system by exporting the model into an edge device such as the Raspberry Pi connected to a trap camera. This would enable real-time predictions in a field without requiring a constant internet connection.
+In the future, this pipeline can be transferred to a working camera system by exporting the model into an edge device such as the Raspberry Pi connected to a trap camera. This would enable real-time predictions out in the field without requiring a constant internet connection.
 
 ## Main Data Analysis and Machine Learning Libraries
 
