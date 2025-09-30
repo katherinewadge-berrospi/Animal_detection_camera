@@ -192,7 +192,6 @@ These were installed locally and used to build, analyse, and visualise the datas
 |Pillow==10.0.1|Image loading and preprocessing|
 |joblib==1.4.2|Saving/loading class mappings and evaluation objects|
 |kaggle==1.5.12|Kaggle API for dataset download|
-|plotly==5.17.0|Interactive charts (development use, later removed for deployment)|
 
 ### Deployment Libraries
 
@@ -213,20 +212,25 @@ To reduce slug size (as mentioned previously) and avoid unnecessary GPU dependen
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
-
-### Content
-
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
+- [Kaggle](https://www.kaggle.com/datasets/anthonytherrien/image-classification-64-classes-animal?select=image)
+- Code Institute Course Material - Predictive Analysis:
+  - For the use of Streamlit, Jupyter, and CRISP-DM Methodology.
+- [TensorFlow Keras Documentation](https://www.tensorflow.org/tutorials/keras/keras_tuner)
+- [TensorFlow Keras - EarlyStopping](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping)
+- [TensorFlow Keras - ReduceLROnPlateau](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ReduceLROnPlateau)
+- [TensorFlow Keras - ModelCheckpoint](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint?hl=en)
+- [Scikit-learn documentation](https://scikit-learn.org/0.21/tutorial/index.html)
+- [Matplotlib tutorials](https://matplotlib.org/stable/tutorials/images.html#sphx-glr-tutorials-images-py)
+- [Matplotlib W3schools](https://www.w3schools.com/python/matplotlib_intro.asp)
+- [Seaborn](https://www.datacamp.com/tutorial/seaborn-python-tutorial)
+- [TailTeller](https://github.com/Jaaz7/TailTeller) is a repository from a previous student that inspired my layout
+- [Emojis](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
 
 ### Media
 
-Example image from Google Images:
-![example cat](assets/img/example-cat.png)
+- All model output images were generated during this project.
+- No external stock images or media were used in the deployed Streamlit dashboard.
 
-## Acknowledgements (optional)
+## Acknowledgements
 
 - Thank the people who provided support throughout this project.
