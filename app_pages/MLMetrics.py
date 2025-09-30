@@ -15,7 +15,25 @@ def page_ml_prediction_metrics():
         ["Train", "Validation", "Test"]
     )
     df_freq = pd.read_csv("app_artifacts/label_distribution.csv")
-    
+    palette = {
+        "train": "tab:blue",
+        "validation": "tab:green",
+        "test": "tab:orange"
+    }
+    fig, ax = plt.subplots(figsize=(10, 6))
+    subset = option.lower()
+    sns.barplot(
+        data=df_freq[df_freq["Set"].str.lower() == subset],
+        x="Label", y="Frequency", ax=ax, color=palette[subset]
+    )
+    ymax = df_freq["Frequency"].max() + 10
+    ax.set_ylim(0, ymax)
+    ax.set_title(f"Label Distribution – {option} Set")
+    ax.set_xlabel("Species")
+    ax.set_ylabel("Frequency")
+    ax.tick_params(axis="x", rotation=90)
+
+    st.pyplot(fig)
 
     st.markdown("## Model Training History")
     st.markdown("### Accuracy Curves")
