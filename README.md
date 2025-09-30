@@ -2,7 +2,7 @@
 
 ## The Client
 
-Our client, Steve B, is a wildlife and conservation enthusiast who want an automated way of monitoring wildlife across the world. He wants to do this by adding an automated predictive softeware to animal trap cameras that will be left in rural areas to film any wildlife that passes by. This would reduce the manual workload of having to go throught the footage by hand.
+Our client, Steve B, is a wildlife and conservation enthusiast who want an automated way of monitoring wildlife across the world. He wants to do this by adding an automated predictive software to animal trap cameras that will be left in rural areas to film any wildlife that passes by. This would reduce the manual workload of having to go throught the footage by hand.
 
 ### User Stories
 
@@ -24,7 +24,7 @@ Acceptance Criteria:
 
 - Upload widget that allows user to use their own images.
 - Model top 3 predictions displayed with confidence scores.
-- Predicitions validated against test set accuracy.
+- Predictions validated against test set accuracy.
 
 #### User Story 3: Model Performance Validation
 
@@ -119,7 +119,7 @@ Advantages:
 - Imported MobileNetV2 for improved efficiency as MobileNetV2 is lightweight and the model comes with pre-trained on ImageNet.
   - Transfer low-level features such as textures and edges.
   - This CNN has scope for scalability as this pipeline could be adapted to other wildlife datasets.
-- CNN Architecture consists of base convulsion layers that are frozen, keeping the pre-trained features, and new dense layers were added.
+- CNN Architecture consists of base convolution layers that are frozen, keeping the pre-trained features, and new dense layers were added.
   - The dense layers consisted of Global Average Pooling, Dense 256 ReLu, Dropout 0.5, and Softmax Classifier.
 
 - Early stopping was introduced to monitor validation loss and restored best weights if there were no more improvements being made.
@@ -161,16 +161,16 @@ Advantages:
 
 - Slug size too large. First attempt at deployment failed as file was ~840MB.
   - Excluding unnecessary files for deployment such as jupyter notebooks.
-  - Used tensorflow 2.20.0 in production, but changed to tensorflor-cpu 2.16.1 for deployment as tensorflor was massive.
+  - Used tensorflow 2.20.0 in production, but changed to tensorflow-cpu 2.16.1 for deployment as tensorflow was massive.
     - This change cut hundreds of MB on its own.
-  - Reduced the number of images avaiable for selection by the user.
+  - Reduced the number of images available for selection by the user.
     - I also converted them from .png to .jpg to reduce file size.
   - The final model was saved as a keras file, I then changed it to a h5, but had to further reduce file size to a tflite format.
     - This is because keras is the heaviest format.
   - Removed interactive plot that used Plotly as I was desperate to get the slug under 500MB.
     - All of the above reduced the slug size, but it was still just over 500MB, so I had to sacrifice Plotly.
 
-- Kernal crashes in Jupyter notebooks due to large model training runs
+- Kernel crashes in Jupyter notebooks due to large model training runs
   - Reduced batch size.
   - Reduce the outputs
 
