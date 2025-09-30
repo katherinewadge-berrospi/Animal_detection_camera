@@ -56,7 +56,7 @@ def page_animal_detection(df=None):
             st.image(
                 img_resized,
                 caption=f"Resized image: {uploaded_file.name} (96x96 pixels)",
-                use_container_width=True,
+                width=150,
             )
 
             img_array = np.array(img_resized, dtype=np.float32) / 255.0
