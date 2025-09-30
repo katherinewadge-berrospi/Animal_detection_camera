@@ -113,6 +113,20 @@ Advantages:
 - Supports conservation efforts and wildlife monitoring by reducing manual workload.
 - Element of scalability as new species can be added to the model's training.
 
+### Model Tuning and Training Strategies
+
+- Very first CNN was a custom design that did not work accurately and had high loss.
+- Imported MobileNetV2 for improved efficiency as MobileNetV2 is lightweight and the model comes with pre-trained on ImageNet.
+  - Transfer low-level features such as textures and edges.
+  - This CNN has scope for scalability as this pipeline could be adapted to other wildlife datasets.
+- CNN Architecture consists of base convulsion layers that are frozen, keeping the pre-trained features, and new dense layers were added.
+  - The dense layers consisted of Global Average Pooling, Dense 256 ReLu, Dropout 0.5, and Softmax Classifier.
+
+- Early stopping was introduced to monitor validation loss and restored best weights if there were no more improvements being made.
+  - Prevents overfitting.
+- Reduced Learning Rate On Plateau reduced the learning rate when validation loss plateaued. This reduced the size of the steps which fine tunes the weights.
+- Model Checkpoint saved the best weights whilst training.
+
 ## Dashboard Design
 
 | Page | Features | Image |
