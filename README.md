@@ -139,16 +139,33 @@ delete stuff below when finished:
 
 ### Heroku
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+- The App live link is: [Animal Detection Camera](https://animal-detection-camera-8ccd612a173b.herokuapp.com/)
+- Set the .python-version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 - The project was deployed to Heroku using the following steps.
 
 1. Log in to Heroku and create an App
 2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
+3. Select the repository name and click Search, then click Connect.
 4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
+5. Wait for the build process to be complete. If all deployment files (Procfile, requirements.txt, setup.sh, .python-version) were correct, the deployment finished without errors.
+6. If the slug size is too large (>500MB), unnecessary and large files were excluded by adding them to the .slugignore file.
+
+### Issues Faced
+
+- Slug size too large. First attempt at deployment failed as file was ~840MB.
+  - Excluding unnecessary files for deployment such as jupyter notebooks.
+  - Used tensorflow 2.20.0 in production, but changed to tensorflor-cpu 2.16.1 for deployment as tensorflor was massive.
+    - This change cut hundreds of MB on its own.
+  - Reduced the number of images avaiable for selection by the user.
+    - I also converted them from .png to .jpg to reduce file size.
+  - The final model was saved as a keras file, I then changed it to a h5, but had to further reduce file size to a tflite format.
+    - This is because keras is the heaviest format.
+  - Removed interactive plot that used Plotly as I was desperate to get the slug under 500MB.
+    - All of the above reduced the slug size, but it was still just over 500MB, so I had to sacrifice Plotly.
+
+- Kernal crashes in Jupyter notebooks due to large model training runs
+  - Reduced batch size.
+  - Reduce the outputs
 
 ## Main Data Analysis and Machine Learning Libraries
 
