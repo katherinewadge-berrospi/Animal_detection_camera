@@ -124,13 +124,6 @@ Advantages:
 | Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) | ![Hypothesis](assets/img/hypothesis-validation.png) ![Hypothesis 1](assets/img/hypoth-one-message.png) ![Hypothesis 2](assets/img/hypoth-two-message.png) ![Hypothesis 3](assets/img/hypoth-three-message.png) |
 | ML Prediction Metrics | Label frequency in each split set. Training history from all sets. Confusion matrices highlighting misclassified species. Classification reports in dropdown box. Business Requirements checklist. | ![Classification reports](assets/img/view-reports.png) ![Business Requirements](assets/img/br-checklist.png) |
 
----
-
-delete stuff below when finished:
-
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
-
 ## Unfixed Bugs
 
 - You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
@@ -169,7 +162,40 @@ delete stuff below when finished:
 
 ## Main Data Analysis and Machine Learning Libraries
 
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+### Production Libraries
+
+These were installed locally and used to build, analyse, and visualise the dataset and model:
+
+|Library|What it does|
+|---|---|
+|streamlit==1.40.2|Dashboard framework for interactive UI|
+|tensorflow==2.20.0|Deep learning framework (CNN model training)|
+|pandas==2.1.1|Data manipulation and tabular handling|
+|numpy==1.26.1|Numerical computing and image array processing|
+|matplotlib==3.8.0|Static plotting for metrics and images|
+|seaborn==0.13.2|Statistical visualisations (label distributions)|
+|scikit-learn==1.3.1|Model evaluation (classification reports, confusion matrices)|
+|Pillow==10.0.1|Image loading and preprocessing|
+|joblib==1.4.2|Saving/loading class mappings and evaluation objects|
+|kaggle==1.5.12|Kaggle API for dataset download|
+|plotly==5.17.0|Interactive charts (development use, later removed for deployment)|
+
+### Deployment Libraries
+
+To reduce slug size (as mentioned previously) and avoid unnecessary GPU dependencies, the following slimmed-down libraries were used in the deployed version of the app:
+
+|Library|What it does|
+|---|---|
+|streamlit==1.40.2|Dashboard framework for interactive UI|
+|protobuf<4|Compatibility requirement for Streamlit and TensorFlow|
+|tensorflow-cpu==2.18.0|Lightweight TensorFlow build for inference only|
+|pandas==2.1.1|Data manipulation and tabular handling|
+|numpy==1.26.1|Numerical computing and image array processing|
+|matplotlib==3.8.0|Static plotting for metrics and images|
+|seaborn==0.13.2|Statistical visualisations (label distributions, heatmaps)|
+|scikit-learn==1.3.1|Model evaluation (classification reports, confusion matrices)|
+|Pillow==10.0.1|Image loading and preprocessing|
+|joblib==1.4.2|Saving/loading class mappings and evaluation objects|
 
 ## Credits
 
