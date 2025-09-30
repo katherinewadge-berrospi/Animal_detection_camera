@@ -90,3 +90,24 @@ def load_report_df(file_path):
                             int(support)])
     return pd.DataFrame(rows, columns=["Label", "Precision", "Recall",
                         "F1-score", "Support"])
+
+st.write("---")
+
+st.markdown("## Business Requirements Checklist")
+st.success(
+    """
+    **Business Requirement 1:**
+    - Can the system highlight visual differences between species?
+        - ✅ The model has high accuracy, low loss, and the confusion
+            matrix shows reliable predictions across species.
+    """
+)
+st.success(
+    """
+    **Business Requirement 2:**
+    - Can the system predict which animal species is present in an uploaded 
+    image with high accuracy?
+        - ✅ The final model achieves high accuracy and is integrated into the 
+        app. It has been tested with example images and performs well.
+    """
+)
