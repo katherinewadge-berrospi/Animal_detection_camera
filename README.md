@@ -4,6 +4,28 @@
 
 Our client, Steve B, is a wildlife and conservation enthusiast who want an automated way of monitoring wildlife across the world. He wants to do this by adding an automated predictive softeware to animal trap cameras that will be left in rural areas to film any wildlife that passes by. This would reduce the manual workload of having to go throught the footage by hand.
 
+### User Stories
+
+#### User Story 1: Dataset Exploration
+
+- As a user, I want to explore species-dependent patterns from images, so that I can verify the quality of the dataset.
+
+Acceptance Criteria:
+
+- Dashboard page shows average and variability of images across species.
+- Label distribution across train/ validation/ test sets.
+- Ability to select species for direct comparisons.
+
+#### User Story 2: Automated Animal Detection
+
+- As a user, I want to upload an image and receive a reliable prediction with a confidence score.
+  
+Acceptance Criteria:
+
+- Upload widget that allows user to use their own images.
+- Model top 3 predictions displayed with confidence scores.
+- Predicitions validated against test set accuracy.
+
 ## Business Requirements
 
 Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
