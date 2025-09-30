@@ -26,6 +26,26 @@ Acceptance Criteria:
 - Model top 3 predictions displayed with confidence scores.
 - Predicitions validated against test set accuracy.
 
+#### User Story 3: Model Performance Validation
+
+- As a user, I want to review performance metrics of the ML model.
+
+Acceptance Criteria:
+
+- Accuracy and loss curves are displayed clearly.
+- Confusion matrices to highlight misclassifications.
+- Classification reports with precision, recall, and F1-score are visible.
+- Support or Rejected messages for each hypothesis are clear.
+
+#### User Story 4: Educational Exploration
+
+- As a student/user, I want to interact with the results on the dashboard so that I can understand how CNN models classify images and see the impact of dataset size and image augmentation.
+
+Acceptance Criteria:
+
+- Pages include text that explains what the plots show.
+- Direct comparisons between full, small, and non-augmented datasets.
+
 ## Business Requirements
 
 Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
