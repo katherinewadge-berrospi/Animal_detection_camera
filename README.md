@@ -1,5 +1,3 @@
-![Animal heading](assets/img/animal-montage.png)
-
 # Animal Detection Camera
 
 ![Animal Detection Camera](assets/img/mockup.png)
@@ -53,7 +51,7 @@ Acceptance Criteria:
 
 ## Business Requirements
 
-Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requires and research needs.
+Steve B, wants a predictive system that can accurately detect animal species from images caught on his animal trap cameras. This project thus needs multiple business requirements and research needs.
 
 - **Business requirement 1:**
   - Can the system highlight visual differences between species (e.g., average features, variability)?
@@ -63,7 +61,7 @@ Steve B, wants a predictive system that can accurately detect animal species fro
 ### Research Needs
 
 - **Wildlife Monitoring & Conservation**
-  - Automating identification of animals captured on the camera traps reduced manual efforts by ecologists.
+  - Automating identification of animals captured on the camera traps reduces manual efforts by ecologists.
   - Can enable large-scale monitoring of biodiversity and endangered species.
 - **Educational Apps**
   - Provides an interactive tool (the Streamlit dashboard) for students and researchers to explore this animal image dataset.
@@ -75,7 +73,7 @@ Steve B, wants a predictive system that can accurately detect animal species fro
 
 ### Data Collection
 
-The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonytherrien/image-classification-64-classes-animal). Then, a fictitious user story where predictive analytics can be applied in a real project in the workplace was created. The dataset contains over 14 thousand images  that was subdivided into 64 species, each species had their own folder.
+The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonytherrien/image-classification-64-classes-animal). The dataset contains over 14 thousand images that was subdivided into 64 species, each species had their own folder.
 
 **Steps taken:**
 
@@ -112,7 +110,7 @@ The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonyther
 
 ### Insights
 
-This hypotheses testing is aligned with the evalutaion phase of **CRIPS-DM**, as assumptions were tested against model performance. The rejection of hypothesis 3 shows how important testing is as it suggested that augmentation may not have been required due to the large and diverse range of the training dataset.
+This hypotheses testing is aligned with the evaluation phase of **CRIPS-DM**, as assumptions were tested against model performance. The rejection of hypothesis 3 shows how important testing is as it suggested that augmentation may not have been required due to the large and diverse range of the training dataset.
 
 ## The Rationale to Map the Business Requirements to the Data Visualisations and ML Tasks
 
@@ -125,13 +123,19 @@ This hypotheses testing is aligned with the evalutaion phase of **CRIPS-DM**, as
 
 ## ML Business Case
 
-- **Automate animal species identification from images**
+Automate animal species identification from images.
+
 Problem:
+
 - Manually identifying animals from large datasets is time consuming.
 - Prone to human errors.
+
 Solution:
+
 - A deep learning model trained on many animal species to determine unseen images, accurately.
+
 Advantages:
+
 - Fast and reliable animal identification
 - Supports conservation efforts and wildlife monitoring by reducing manual workload.
 - Element of scalability as new species can be added to the model's training.
@@ -139,7 +143,7 @@ Advantages:
 ### Model Tuning and Training Strategies
 
 - Very first CNN was a custom design that did not work accurately and had high loss.
-- Imported MobileNetV2 for improved efficiency as MobileNetV2 is lightweight and the model comes with pre-trained on ImageNet.
+- Imported MobileNetV2 for improved efficiency as MobileNetV2 is lightweight and the model comes pre-trained on ImageNet.
   - Transfer low-level features such as textures and edges.
   - This CNN has scope for scalability as this pipeline could be adapted to other wildlife datasets.
 - CNN Architecture consists of base convolution layers that are frozen, keeping the pre-trained features, and new dense layers were added.
@@ -149,16 +153,17 @@ Advantages:
   - Prevents overfitting.
 - Reduced Learning Rate On Plateau reduced the learning rate when validation loss plateaued. This reduced the size of the steps which fine tunes the weights.
 - Model Checkpoint saved the best weights whilst training.
+- The model parameters such as batch size, epochs, and patience for early stopping were tuned to balance model performance and resource usage.
 
 ## Dashboard Design
 
 | Page | Features | Image |
 | --- | --- | --- |
-| All pages | Navigation bar | ![Nav Bar](/assets/img/nav-bar.png) |
+| All pages | Navigation bar. | ![Nav Bar](/assets/img/nav-bar.png) |
 | Project Summary | Overview of objectives and business requirements. Dataset sources and workflow. | ![Business Requirements & Hypotheses](assets/img/br-hypotheses.png) |
 | Animal Visualizer | Average and variability plots. Select species to compare. Preview small montage from datasets. All dropdown and checkboxes. | ![Average & variability of species](assets/img/visualise-two-species.png) ![Image Montage](/assets/img/visualize-montage.png) |
-| Animal Detection | Upload image functionality. Display predicted species & confidence scores. Download the results. Error message on prediction <50% | ![Upload Image](assets/img/upload-image.png) ![Example prediction](assets/img/example-prediction.png) ![Example download](assets/img/example-download-csv.png) ![Low quality image](assets/img/error-low-quality.png) |
-| Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species.) | ![Hypothesis](assets/img/hypothesis-validation.png) ![Hypothesis 1](assets/img/hypoth-one-message.png) ![Hypothesis 2](assets/img/hypoth-two-message.png) ![Hypothesis 3](assets/img/hypoth-three-message.png) |
+| Animal Detection | Upload image functionality. Display predicted species & confidence scores. Download the results. Error message on predictions <50%. | ![Upload Image](assets/img/upload-image.png) ![Example prediction](assets/img/example-prediction.png) ![Example download](assets/img/example-download-csv.png) ![Low quality image](assets/img/error-low-quality.png) |
+| Hypotheses and Validation | Display training accuracy and losses. Confusion matrix (true vs predicted species). | ![Hypothesis](assets/img/hypothesis-validation.png) ![Hypothesis 1](assets/img/hypoth-one-message.png) ![Hypothesis 2](assets/img/hypoth-two-message.png) ![Hypothesis 3](assets/img/hypoth-three-message.png) |
 | ML Prediction Metrics | Interactive select box allows users to see the label frequency in each set. Training history from all sets. Confusion matrices highlighting misclassified species. Classification reports in dropdown box. Business Requirements checklist. | ![Interactive select box](assets/img/interactive-lf.png) ![Classification reports](assets/img/view-reports.png) ![Business Requirements](assets/img/br-checklist.png) |
 
 ## Deployment
@@ -180,14 +185,14 @@ Advantages:
 
 - Slug size too large. First attempt at deployment failed as file was ~840MB.
   - Excluding unnecessary files for deployment such as jupyter notebooks.
-  - Used tensorflow 2.20.0 in production, but changed to tensorflow-cpu 2.16.1 for deployment as tensorflow was massive.
+  - Used tensorflow 2.20.0 in production, but changed to tensorflow-cpu 2.16.1 for deployment as tensorflow itself was huge.
     - This change cut hundreds of MB on its own.
   - Reduced the number of images available for selection by the user.
-    - I also converted them from .png to .jpg to reduce file size.
-  - The final model was saved as a keras file, I then changed it to a h5, but had to further reduce file size to a tflite format.
+    - Images were converted from .png to .jpg to reduce file size.
+  - The final model was saved as a keras file, then changed to a h5, but had to further reduce file size to a tflite format.
     - This is because keras is the heaviest format.
-  - Removed interactive plot that used Plotly as I was desperate to get the slug under 500MB.
-    - All of the above reduced the slug size, but it was still just over 500MB, so I had to sacrifice Plotly.
+  - Removed interactive plot that used Plotly in attempt to get the slug under 500MB.
+    - Instead, Seaborn, which was already in requirements.txt, was used.
 
 - Kernel crashes in Jupyter notebooks due to large model training runs
   - Reduced batch size.
@@ -245,6 +250,7 @@ To reduce slug size (as mentioned previously) and avoid unnecessary GPU dependen
 - [Kaggle](https://www.kaggle.com/datasets/anthonytherrien/image-classification-64-classes-animal?select=image)
 - Code Institute Course Material - Predictive Analysis:
   - For the use of Streamlit, Jupyter, and CRISP-DM Methodology.
+  - Walkthrough projects
 - [TensorFlow Keras Documentation](https://www.tensorflow.org/tutorials/keras/keras_tuner)
 - [TensorFlow Keras - EarlyStopping](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping)
 - [TensorFlow Keras - ReduceLROnPlateau](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ReduceLROnPlateau)
