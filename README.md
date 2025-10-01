@@ -96,6 +96,20 @@ The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonyther
 - **Hypothesis 2**: Training the model on a smaller dataset reduces model performance and accuracy.
 - **Hypothesis 3**: Training the model on images without augmentation will reduce model performance and accuracy.
 
+### Hypotheses Validation
+
+- **Hypothesis 1** was validated by producing average and variability images, accuracy and loss, curves, and a confusion matrix to confirm the model's reliability, differentiating species by visual features.
+- **Hypothesis 2** was validated using the same method as hypothesis 1 but reducing the number of training images to 10% of the original split dataset.
+- **Hypothesis 3** was validated using the same method as hypothesis 1 but this time the process of image augmentation was cropped out.
+
+### Outcomes
+
+| **Hypothesis** | **Supported or Rejected** | **Validation** |
+|---|---|---|
+|**Hypothesis 1**|Supported|The model can distinguish between species with high validation accuracy around 0.98 and low loss, indicating a strong performance. The confusion matrix also shows the model rarely misclassified species.|
+|**Hypothesis 2**|Supported|The full dataset achieved 98% accuracy and F1-score with a loss of 5%. Whereas, the smaller dataset achieved 96% accuracy and F1-score with a higher loss of 14%.This confirms that the larger dataset delivered stronger performance, though the small dataset still performed well.|
+|**Hypothesis 3**|Rejected|The non-augmented model outperformed the augmented model with 99% accuracy and F1-score, and a loss of 3%, compared to 98% and 5% respectively. This contradicts the hypothesis, showing that augmentation did not improve performance and may not be required for this dataset.|
+
 ## The Rationale to Map the Business Requirements to the Data Visualisations and ML Tasks
 
 - Business requirement 1, mapped tasks:
