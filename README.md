@@ -3,6 +3,40 @@
 ![Animal Detection Camera](assets/img/mockup.png)
 View the live website: [Animal Detection Camera](https://animal-detection-camera-8ccd612a173b.herokuapp.com/)
 
+## Contents
+
+- [Animal Detection Camera](#animal-detection-camera)
+  - [Contents](#contents)
+  - [The Client](#the-client)
+    - [User Stories](#user-stories)
+      - [User Story 1: Dataset Exploration](#user-story-1-dataset-exploration)
+      - [User Story 2: Automated Animal Detection](#user-story-2-automated-animal-detection)
+      - [User Story 3: Model Performance Validation](#user-story-3-model-performance-validation)
+      - [User Story 4: Educational Exploration](#user-story-4-educational-exploration)
+  - [Business Requirements](#business-requirements)
+    - [Research Needs](#research-needs)
+  - [Dataset Content](#dataset-content)
+    - [Data Collection](#data-collection)
+  - [Hypotheses](#hypotheses)
+    - [Hypotheses Validation](#hypotheses-validation)
+    - [Outcomes](#outcomes)
+    - [Insights](#insights)
+  - [The Rationale to Map the Business Requirements to the Data Visualisations and ML Tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+  - [ML Business Case](#ml-business-case)
+    - [Model Tuning and Training Strategies](#model-tuning-and-training-strategies)
+  - [Dashboard Design](#dashboard-design)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+    - [Issues Faced](#issues-faced)
+  - [Final Summary](#final-summary)
+  - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+    - [Production Libraries](#production-libraries)
+    - [Deployment Libraries](#deployment-libraries)
+  - [Unfixed Bugs](#unfixed-bugs)
+  - [Credits](#credits)
+    - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
+
 ## The Client
 
 Our client, Steve B, is a wildlife and conservation enthusiast who want an automated way of monitoring wildlife across the world. He wants to do this by adding an automated predictive software to animal trap cameras that will be left in rural areas to film any wildlife that passes by. This would reduce the manual workload of having to go throught the footage by hand.
