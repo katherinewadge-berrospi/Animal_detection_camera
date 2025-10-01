@@ -110,6 +110,10 @@ The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/anthonyther
 |**Hypothesis 2**|Supported|The full dataset achieved 98% accuracy and F1-score with a loss of 5%. Whereas, the smaller dataset achieved 96% accuracy and F1-score with a higher loss of 14%.This confirms that the larger dataset delivered stronger performance, though the small dataset still performed well.|
 |**Hypothesis 3**|Rejected|The non-augmented model outperformed the augmented model with 99% accuracy and F1-score, and a loss of 3%, compared to 98% and 5% respectively. This contradicts the hypothesis, showing that augmentation did not improve performance and may not be required for this dataset.|
 
+### Insights
+
+This hypotheses testing is aligned with the evalutaion phase of **CRIPS-DM**, as assumptions were tested against model performance. The rejection of hypothesis 3 shows how important testing is as it suggested that augmentation may not have been required due to the large and diverse range of the training dataset.
+
 ## The Rationale to Map the Business Requirements to the Data Visualisations and ML Tasks
 
 - Business requirement 1, mapped tasks:
